@@ -1,0 +1,2 @@
+# USTA-KZ-COM
+Privat
