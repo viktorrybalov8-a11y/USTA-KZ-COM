@@ -103,10 +103,38 @@ class _AdminSignInScreenState extends State<AdminSignInScreen> {
           if (error != null) ...[const SizedBox(height: 12), Text(error!, style: const TextStyle(color: Colors.red))],
           const SizedBox(height: 18),
           FilledButton(onPressed: busy ? null : signIn, child: Text(busy ? 'Входим…' : 'Войти')),
+          const SizedBox(height: 8),
+          TextButton(
+            onPressed: busy ? null : resetPassword,
+            child: const Text('Забыли пароль?'),
+          ),
         ],
       )),
     ))),
   );
+
+  Future<void> resetPassword() async {
+    final address = email.text.trim();
+    if (address.isEmpty) {
+      setState(() => error = 'Сначала укажите электронную почту.');
+      return;
+    }
+    setState(() { busy = true; error = null; });
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: address);
+      if (mounted) {
+        adminScaffoldMessengerKey.currentState?.showSnackBar(
+          const SnackBar(content: Text('Если аккаунт зарегистрирован, письмо для сброса пароля отправлено.')),
+        );
+      }
+    } on FirebaseAuthException {
+      if (mounted) setState(() => error = 'Не удалось отправить письмо. Проверьте адрес и настройки Firebase.');
+    } catch (_) {
+      if (mounted) setState(() => error = 'Не удалось отправить письмо. Проверьте подключение.');
+    } finally {
+      if (mounted) setState(() => busy = false);
+    }
+  }
 
   Future<void> signIn() async {
     setState(() { busy = true; error = null; });
