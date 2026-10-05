@@ -14,7 +14,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: const FirebaseOptions(
     apiKey: String.fromEnvironment('FIREBASE_API_KEY', defaultValue: 'AIzaSyBZs1gEmuqCN9vbaXT7CGY0x6M_jNDnuUE'),
-    appId: String.fromEnvironment('FIREBASE_APP_ID', defaultValue: '1:923347040194:android:6fff16a782f9520195485b'),
+    appId: String.fromEnvironment('FIREBASE_APP_ID', defaultValue: '1:923347040194:android:3ead2046493d3b3b95485b'),
     messagingSenderId: String.fromEnvironment('FIREBASE_MESSAGING_SENDER_ID', defaultValue: '923347040194'),
     projectId: String.fromEnvironment('FIREBASE_PROJECT_ID', defaultValue: 'usta-kz'),
     storageBucket: String.fromEnvironment('FIREBASE_STORAGE_BUCKET', defaultValue: 'usta-kz.firebasestorage.app'),
