@@ -33,10 +33,26 @@ async function notifyAdmins(notice: Notice): Promise<void> {
   await Promise.all(admins.docs.map((admin) => notifyUser(admin.id, notice)));
 }
 
+async function notifyTopic(topic: string, notice: Notice): Promise<void> {
+  await messaging.send({
+    topic,
+    notification: { title: notice.title, body: notice.body },
+    data: { type: notice.type },
+    android: { priority: "normal" },
+  });
+}
+
 export const notifyAdminOnNewProfile = onDocumentCreated({ document: "users/{uid}", region: "asia-south1" }, async (event) => {
   const name = String(event.data?.get("displayName") ?? "Новый пользователь").slice(0, 80);
   const role = String(event.data?.get("role") ?? "пользователь");
-  await notifyAdmins({ title: "Новая регистрация USTA.KZ", body: `${name} · ${role}`, type: "new_user" });
+  await Promise.all([
+    notifyAdmins({ title: "Новая регистрация USTA.KZ", body: `${name} · ${role}`, type: "new_user" }),
+    notifyTopic("usta_all", {
+      title: "Новый участник USTA.KZ",
+      body: "К сообществу USTA.KZ присоединился новый пользователь.",
+      type: "new_user",
+    }),
+  ]);
 });
 
 export const notifyUsersOnNewJob = onDocumentCreated({ document: "jobs/{jobId}", region: "asia-south1" }, async (event) => {
