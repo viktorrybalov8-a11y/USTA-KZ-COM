@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
@@ -30,6 +32,19 @@ class _CreateJobScreenState extends State<CreateJobScreen> {
   @override
   void initState() {
     super.initState();
+    _loadProfilePhone();
+  }
+
+  Future<void> _loadProfilePhone() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+    try {
+      final snapshot = await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+      final phone = snapshot.data()?['phone'] as String?;
+      if (mounted && phone != null && _phone.text.isEmpty) _phone.text = phone;
+    } catch (_) {
+      // The user can still enter a contact number manually.
+    }
   }
 
   @override
@@ -176,7 +191,7 @@ class _CreateJobScreenState extends State<CreateJobScreen> {
     }
     if (!FirebaseConfig.hasStorage) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Для фото нужно указать Firebase Storage bucket.')),
+        const SnackBar(content: Text('Фото появятся после включения Firebase Storage. Пока можно опубликовать заказ без фото.')),
       );
       return;
     }

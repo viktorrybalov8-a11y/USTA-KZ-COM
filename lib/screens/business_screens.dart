@@ -2,6 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+Future<String?> _contactPhone(User user) async {
+  final snapshot = await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+  return snapshot.data()?['phone'] as String?;
+}
+
 class BusinessScreen extends StatelessWidget {
   const BusinessScreen({super.key});
 
@@ -9,9 +14,11 @@ class BusinessScreen extends StatelessWidget {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return;
     try {
+      final phone = await _contactPhone(user);
+      if (phone == null || phone.isEmpty) throw StateError('Заполните телефон в профиле.');
       await FirebaseFirestore.instance.collection('serviceRequests').add({
         'ownerUid': user.uid,
-        'phone': user.phoneNumber ?? '',
+        'phone': phone,
         'type': 'business',
         'planId': 'usta_business_monthly',
         'price': 9999,
@@ -23,8 +30,8 @@ class BusinessScreen extends StatelessWidget {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Заявка отправлена. Администратор свяжется с вами для подключения и оплаты.')));
       }
-    } catch (_) {
-      if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Не удалось отправить заявку. Проверьте подключение.')));
+    } catch (error) {
+      if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error is StateError ? error.message : 'Не удалось отправить заявку. Проверьте подключение.')));
     }
   }
 
@@ -95,9 +102,11 @@ class _AdvertisingRequestScreenState extends State<AdvertisingRequestScreen> {
     if (user == null) return;
     setState(() => _sending = true);
     try {
+      final phone = await _contactPhone(user);
+      if (phone == null || phone.isEmpty) throw StateError('Заполните телефон в профиле.');
       await FirebaseFirestore.instance.collection('serviceRequests').add({
         'ownerUid': user.uid,
-        'phone': user.phoneNumber ?? '',
+        'phone': phone,
         'type': 'advertising',
         'company': _company.text.trim(),
         'placement': _placement,
@@ -109,10 +118,10 @@ class _AdvertisingRequestScreenState extends State<AdvertisingRequestScreen> {
       setState(() => _sending = false);
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Заявка отправлена. Мы свяжемся с вами.')));
       Navigator.pop(context);
-    } catch (_) {
+    } catch (error) {
       if (mounted) {
         setState(() => _sending = false);
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Не удалось отправить заявку. Попробуйте ещё раз.')));
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error is StateError ? error.message : 'Не удалось отправить заявку. Попробуйте ещё раз.')));
       }
     }
   }
