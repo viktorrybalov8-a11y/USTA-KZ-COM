@@ -10,6 +10,7 @@ import 'screens/auth_screen.dart';
 import 'screens/home_screen.dart';
 import 'services/job_repository.dart';
 import 'services/notification_service.dart';
+import 'services/push_banner.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,6 +40,7 @@ class UstaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
+    scaffoldMessengerKey: appScaffoldMessengerKey,
     debugShowCheckedModeBanner: false,
     title: 'USTA.KZ',
     theme: ThemeData(
