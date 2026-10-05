@@ -8,6 +8,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 
 import '../firebase_config.dart';
+import 'push_banner.dart';
 
 class NotificationService {
   NotificationService._();
@@ -22,10 +23,12 @@ class NotificationService {
     final isAdmin = result.claims?['admin'] == true;
     final configKey = '${user.uid}:$role:$isAdmin';
     if (_initializedKey == configKey) return;
-    _initializedKey = configKey;
     final messaging = FirebaseMessaging.instance;
     final permission = await messaging.requestPermission(alert: true, badge: true, sound: true);
-    if (permission.authorizationStatus == AuthorizationStatus.denied) return;
+    if (permission.authorizationStatus == AuthorizationStatus.denied) {
+      _initializedKey = configKey;
+      return;
+    }
     final token = await messaging.getToken();
     if (token != null) await _saveToken(user.uid, token);
     await messaging.subscribeToTopic('usta_all');
@@ -38,8 +41,13 @@ class NotificationService {
     });
     await _messageSubscription?.cancel();
     _messageSubscription = FirebaseMessaging.onMessage.listen((message) {
-      debugPrint('USTA.KZ notification received: ${message.messageId ?? 'message'}');
+      final notification = message.notification;
+      showPushBanner(
+        notification?.title ?? 'Уведомление USTA.KZ',
+        notification?.body ?? 'Откройте приложение, чтобы посмотреть обновление.',
+      );
     });
+    _initializedKey = configKey;
   }
 
   Future<void> detach(String uid) async {
