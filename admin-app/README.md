@@ -23,9 +23,9 @@ python3 ../tool/configure_admin_android.py
 flutter pub get
 flutter analyze
 flutter test
-flutter build apk --debug
+flutter build apk --release --target-platform android-arm64
 ```
 
-APK для проверки: `admin-app/build/app/outputs/flutter-apk/app-debug.apk`.
+APK для проверки: `admin-app/build/app/outputs/flutter-apk/app-release.apk`.
 
-В GitHub Actions собирается отдельный артефакт `USTA-Admin-debug-apk`.
+В GitHub Actions собирается отдельный артефакт `USTA-Admin-installable-apk`.
