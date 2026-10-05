@@ -8,6 +8,9 @@ class Job {
     required this.description,
     required this.budget,
     required this.createdAt,
+    this.ownerId,
+    this.imageUrls = const [],
+    this.status = 'published',
   });
 
   final String id;
@@ -18,6 +21,9 @@ class Job {
   final String description;
   final int budget;
   final DateTime createdAt;
+  final String? ownerId;
+  final List<String> imageUrls;
+  final String status;
 
   Map<String, Object?> toJson() => {
         'id': id,
@@ -28,6 +34,9 @@ class Job {
         'description': description,
         'budget': budget,
         'createdAt': createdAt.toIso8601String(),
+        'ownerId': ownerId,
+        'imageUrls': imageUrls,
+        'status': status,
       };
 
   factory Job.fromJson(Map<String, Object?> json) => Job(
@@ -39,5 +48,8 @@ class Job {
         description: json['description']! as String,
         budget: json['budget']! as int,
         createdAt: DateTime.parse(json['createdAt']! as String),
+        ownerId: json['ownerId'] as String?,
+        imageUrls: (json['imageUrls'] as List<dynamic>? ?? const []).cast<String>(),
+        status: json['status'] as String? ?? 'published',
       );
 }

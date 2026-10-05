@@ -1,0 +1,186 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null && request.auth.token.phone_number != null;
+    }
+
+    function validProfile(data, uid) {
+      return data.uid == uid
+        && data.phone == request.auth.token.phone_number
+        && data.displayName is string
+        && data.displayName.size() >= 2
+        && data.displayName.size() <= 80
+        && data.city is string
+        && data.city.size() >= 2
+        && data.city.size() <= 80
+        && data.role in ['customer', 'master', 'company']
+        && data.services is list
+        && data.services.size() <= 10;
+    }
+
+    match /users/{uid} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow create: if signedIn() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly([
+          'uid', 'displayName', 'phone', 'city', 'role', 'createdAt', 'updatedAt', 'services', 'photoUrl'
+        ])
+        && validProfile(request.resource.data, uid)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+      allow update: if signedIn() && request.auth.uid == uid
+        && request.resource.data.uid == resource.data.uid
+        && request.resource.data.phone == resource.data.phone
+        && request.resource.data.role == resource.data.role
+        && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() >= 2
+        && request.resource.data.displayName.size() <= 80
+        && request.resource.data.city is string
+        && request.resource.data.city.size() >= 2
+        && request.resource.data.city.size() <= 80
+        && request.resource.data.services is list
+        && request.resource.data.services.size() <= 10
+        && (!('photoUrl' in request.resource.data) || (request.resource.data.photoUrl is string && request.resource.data.photoUrl.size() <= 2048))
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.keys().hasOnly([
+          'uid', 'displayName', 'phone', 'city', 'role', 'createdAt', 'updatedAt', 'services', 'photoUrl'
+        ]);
+      allow delete: if signedIn() && request.auth.uid == uid;
+
+      match /devices/{tokenId} {
+        allow read, create, update, delete: if signedIn() && request.auth.uid == uid;
+      }
+    }
+
+    match /publicProfiles/{uid} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.auth.uid == uid
+        && request.resource.data.uid == uid
+        && request.resource.data.keys().hasOnly([
+          'uid', 'displayName', 'city', 'role', 'services', 'createdAt', 'updatedAt', 'photoUrl'
+        ])
+        && request.resource.data.role in ['customer', 'master', 'company']
+        && request.resource.data.services is list
+        && request.resource.data.services.size() <= 10
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+      allow update: if signedIn() && request.auth.uid == uid
+        && request.resource.data.uid == uid
+        && request.resource.data.role == resource.data.role
+        && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() >= 2
+        && request.resource.data.displayName.size() <= 80
+        && request.resource.data.city is string
+        && request.resource.data.city.size() >= 2
+        && request.resource.data.city.size() <= 80
+        && request.resource.data.services is list
+        && request.resource.data.services.size() <= 10
+        && (!('photoUrl' in request.resource.data) || (request.resource.data.photoUrl is string && request.resource.data.photoUrl.size() <= 2048))
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.keys().hasOnly([
+          'uid', 'displayName', 'city', 'role', 'services', 'createdAt', 'updatedAt', 'photoUrl'
+        ]);
+      allow delete: if signedIn() && request.auth.uid == uid;
+    }
+
+    match /jobs/{jobId} {
+      allow read: if signedIn() && resource.data.status == 'published';
+      allow create: if signedIn()
+        && request.resource.data.ownerId == request.auth.uid
+        && request.resource.data.phone == request.auth.token.phone_number
+        && request.resource.data.status == 'published'
+        && request.resource.data.title is string
+        && request.resource.data.title.size() >= 3
+        && request.resource.data.title.size() <= 70
+        && request.resource.data.category is string
+        && request.resource.data.category.size() <= 80
+        && request.resource.data.city is string
+        && request.resource.data.city.size() >= 2
+        && request.resource.data.city.size() <= 80
+        && request.resource.data.description is string
+        && request.resource.data.description.size() >= 3
+        && request.resource.data.description.size() <= 1000
+        && request.resource.data.budget is int
+        && request.resource.data.budget >= 0
+        && request.resource.data.imageUrls is list
+        && request.resource.data.imageUrls.size() <= 4
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.keys().hasOnly([
+          'id', 'title', 'category', 'city', 'phone', 'description', 'budget',
+          'createdAt', 'ownerId', 'imageUrls', 'status'
+        ]);
+      allow update: if signedIn()
+        && resource.data.ownerId == request.auth.uid
+        && request.resource.data.ownerId == resource.data.ownerId
+        && request.resource.data.phone == request.auth.token.phone_number
+        && request.resource.data.status in ['published', 'closed']
+        && request.resource.data.title is string
+        && request.resource.data.title.size() >= 3
+        && request.resource.data.title.size() <= 70
+        && request.resource.data.category is string
+        && request.resource.data.category.size() <= 80
+        && request.resource.data.city is string
+        && request.resource.data.city.size() >= 2
+        && request.resource.data.city.size() <= 80
+        && request.resource.data.description is string
+        && request.resource.data.description.size() >= 3
+        && request.resource.data.description.size() <= 1000
+        && request.resource.data.budget is int
+        && request.resource.data.budget >= 0
+        && request.resource.data.imageUrls.size() <= 4
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.keys().hasOnly([
+          'id', 'title', 'category', 'city', 'phone', 'description', 'budget',
+          'createdAt', 'ownerId', 'imageUrls', 'status'
+        ]);
+      allow delete: if signedIn() && resource.data.ownerId == request.auth.uid;
+    }
+
+    match /conversations/{conversationId} {
+      allow read: if signedIn() && resource.data.participants.hasAny([request.auth.uid]);
+      allow create: if signedIn()
+        && request.resource.data.participants is list
+        && request.resource.data.participants.size() == 2
+        && request.resource.data.participants.hasAny([request.auth.uid])
+        && request.resource.data.lastMessage == ''
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.keys().hasOnly([
+          'participants', 'createdAt', 'updatedAt', 'lastMessage'
+        ]);
+      allow update: if signedIn()
+        && resource.data.participants.hasAny([request.auth.uid])
+        && request.resource.data.participants == resource.data.participants
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.lastMessage is string
+        && request.resource.data.lastMessage.size() <= 2000
+        && request.resource.data.lastSenderId == request.auth.uid
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.keys().hasOnly([
+          'participants', 'createdAt', 'updatedAt', 'lastMessage', 'lastSenderId'
+        ]);
+      allow delete: if false;
+
+      match /messages/{messageId} {
+        function conversationMember() {
+          return signedIn() && get(/databases/$(database)/documents/conversations/$(conversationId)).data.participants.hasAny([request.auth.uid]);
+        }
+        allow read: if conversationMember();
+        allow create: if conversationMember()
+          && request.resource.data.senderId == request.auth.uid
+          && request.resource.data.text is string
+          && request.resource.data.text.size() > 0
+          && request.resource.data.text.size() <= 2000
+          && request.resource.data.createdAt == request.time
+          && request.resource.data.keys().hasOnly(['senderId', 'text', 'createdAt']);
+        allow update, delete: if false;
+      }
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -13,6 +13,8 @@ void main() {
       description: 'Нужна бригада для монтажа.',
       budget: 250000,
       createdAt: DateTime.utc(2026, 10, 5, 4, 30),
+      ownerId: 'user-1',
+      imageUrls: const ['https://example.test/job-1.jpg'],
     );
 
     final restored = Job.fromJson(job.toJson());
@@ -22,5 +24,25 @@ void main() {
     expect(restored.city, 'Петропавловск');
     expect(restored.budget, 250000);
     expect(restored.createdAt, createdAt);
+    expect(restored.ownerId, 'user-1');
+    expect(restored.imageUrls, ['https://example.test/job-1.jpg']);
+    expect(restored.status, 'published');
+  });
+
+  test('old local orders still load without cloud fields', () {
+    final restored = Job.fromJson({
+      'id': 'old-job',
+      'title': 'Ремонт кухни',
+      'category': 'Отделка',
+      'city': 'Астана',
+      'phone': '+7 700 000 00 00',
+      'description': 'Нужен мастер.',
+      'budget': 0,
+      'createdAt': '2026-10-01T00:00:00.000Z',
+    });
+
+    expect(restored.ownerId, isNull);
+    expect(restored.imageUrls, isEmpty);
+    expect(restored.status, 'published');
   });
 }
