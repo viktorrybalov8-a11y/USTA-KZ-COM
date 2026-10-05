@@ -1,9 +1,14 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 const green = Color(0xFF146B5A);
+final adminScaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,6 +26,7 @@ class UstaAdminApp extends StatelessWidget {
   const UstaAdminApp({super.key});
   @override
   Widget build(BuildContext context) => MaterialApp(
+    scaffoldMessengerKey: adminScaffoldMessengerKey,
     title: 'USTA Администратор',
     debugShowCheckedModeBanner: false,
     theme: ThemeData(useMaterial3: true, colorSchemeSeed: green, scaffoldBackgroundColor: const Color(0xFFF4F7F6)),
@@ -116,12 +122,104 @@ class _AdminSignInScreenState extends State<AdminSignInScreen> {
   }
 }
 
-class AdminDashboard extends StatelessWidget {
+class AdminPushService {
+  static StreamSubscription<String>? _tokenSubscription;
+  static StreamSubscription<RemoteMessage>? _messageSubscription;
+
+  static Future<void> initialize(User user) async {
+    try {
+      final messaging = FirebaseMessaging.instance;
+      final permission = await messaging.requestPermission(alert: true, badge: true, sound: true);
+      if (permission.authorizationStatus == AuthorizationStatus.denied) return;
+      final token = await messaging.getToken();
+      if (token != null) await _saveToken(user.uid, token);
+      await messaging.subscribeToTopic('usta_all');
+      await messaging.subscribeToTopic('usta_admins');
+      await _tokenSubscription?.cancel();
+      _tokenSubscription = messaging.onTokenRefresh.listen((value) {
+        unawaited(_saveToken(user.uid, value));
+      });
+      await _messageSubscription?.cancel();
+      _messageSubscription = FirebaseMessaging.onMessage.listen((message) {
+        final notification = message.notification;
+        adminScaffoldMessengerKey.currentState?.showSnackBar(
+          SnackBar(
+            behavior: SnackBarBehavior.floating,
+            content: Text(
+              [notification?.title, notification?.body]
+                  .whereType<String>()
+                  .where((part) => part.isNotEmpty)
+                  .join(' · '),
+            ),
+          ),
+        );
+      });
+    } catch (_) {
+      // The admin dashboard remains usable if push setup is temporarily unavailable.
+    }
+  }
+
+  static Future<void> _saveToken(String uid, String token) async {
+    final id = base64Url.encode(utf8.encode(token)).replaceAll('=', '');
+    await FirebaseFirestore.instance
+        .collection('users')
+        .doc(uid)
+        .collection('devices')
+        .doc(id)
+        .set({
+      'token': token,
+      'platform': 'android',
+      'createdAt': FieldValue.serverTimestamp(),
+      'updatedAt': FieldValue.serverTimestamp(),
+    }, SetOptions(merge: true));
+  }
+
+  static Future<void> detachAndSignOut() async {
+    final user = FirebaseAuth.instance.currentUser;
+    try {
+      if (user != null) {
+        final token = await FirebaseMessaging.instance.getToken();
+        if (token != null) {
+          final id = base64Url.encode(utf8.encode(token)).replaceAll('=', '');
+          await FirebaseFirestore.instance
+              .collection('users')
+              .doc(user.uid)
+              .collection('devices')
+              .doc(id)
+              .delete();
+        }
+      }
+      await FirebaseMessaging.instance.unsubscribeFromTopic('usta_all');
+      await FirebaseMessaging.instance.unsubscribeFromTopic('usta_admins');
+      await _tokenSubscription?.cancel();
+      await _messageSubscription?.cancel();
+    } catch (_) {
+      // Signing out should still finish if the device is offline.
+    }
+    await FirebaseAuth.instance.signOut();
+  }
+}
+
+class AdminDashboard extends StatefulWidget {
   const AdminDashboard({super.key});
+
+  @override
+  State<AdminDashboard> createState() => _AdminDashboardState();
+}
+
+class _AdminDashboardState extends State<AdminDashboard> {
+  @override
+  void initState() {
+    super.initState();
+    final user = FirebaseAuth.instance.currentUser;
+    if (user != null) unawaited(AdminPushService.initialize(user));
+  }
+
+
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(title: const Text('Заявки USTA.KZ'), actions: [
-      IconButton(tooltip: 'Выйти', onPressed: FirebaseAuth.instance.signOut, icon: const Icon(Icons.logout)),
+      IconButton(tooltip: 'Выйти', onPressed: AdminPushService.detachAndSignOut, icon: const Icon(Icons.logout)),
     ]),
     body: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
       stream: FirebaseFirestore.instance.collection('serviceRequests').orderBy('createdAt', descending: true).limit(100).snapshots(),
