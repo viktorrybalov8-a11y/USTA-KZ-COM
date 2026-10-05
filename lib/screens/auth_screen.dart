@@ -266,7 +266,9 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
     });
     try {
       await widget.user.sendEmailVerification();
-      if (mounted) setState(() => _message = 'Письмо отправлено. Проверьте входящие и папку «Спам».');
+      if (mounted) {
+        setState(() => _message = 'Письмо отправлено. Проверьте входящие и папку «Спам».');
+      }
     } on FirebaseAuthException catch (exception) {
       if (mounted) setState(() => _message = exception.code == 'too-many-requests'
           ? 'Слишком много запросов. Подождите и попробуйте снова.'

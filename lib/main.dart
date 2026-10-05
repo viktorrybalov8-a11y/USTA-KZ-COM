@@ -142,10 +142,12 @@ class _AuthGateState extends State<AuthGate> {
     } catch (_) {
       isAdmin = false;
     }
-    if (mounted) setState(() {
-      _user = user;
-      _isAdmin = isAdmin;
-    });
+    if (mounted) {
+      setState(() {
+        _user = user;
+        _isAdmin = isAdmin;
+      });
+    }
   }
 }
 
