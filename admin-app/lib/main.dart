@@ -135,7 +135,7 @@ class AdminDashboard extends StatelessWidget {
           Padding(padding: const EdgeInsets.fromLTRB(16, 10, 16, 4), child: Card(color: Colors.white, child: ListTile(
             leading: const CircleAvatar(backgroundColor: Color(0xFFE3F3ED), child: Icon(Icons.inbox_outlined, color: green)),
             title: Text('${docs.length} последних заявок'),
-            subtitle: Text('${fresh} новых · обновляются автоматически'),
+            subtitle: Text('$fresh новых · обновляются автоматически'),
           ))),
           Expanded(child: ListView.separated(
             padding: const EdgeInsets.all(16), itemCount: docs.length,
