@@ -178,7 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   onSelected: (value) {
                     if (value == 'sign_out') FirebaseAuth.instance.signOut();
                     if (value == 'profile') _showProfile(context);
-                    if (value == 'admin') Navigator.push(context, MaterialPageRoute<void>(builder: (_) => const AdminRequestsScreen()));
+                    if (value == 'admin' && widget.isAdmin) Navigator.push(context, MaterialPageRoute<void>(builder: (_) => const AdminRequestsScreen()));
                   },
                   itemBuilder: (_) => [
                     const PopupMenuItem(value: 'profile', child: Text('Мой профиль')),
