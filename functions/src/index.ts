@@ -33,13 +33,13 @@ async function notifyAdmins(notice: Notice): Promise<void> {
   await Promise.all(admins.docs.map((admin) => notifyUser(admin.id, notice)));
 }
 
-export const notifyAdminOnNewProfile = onDocumentCreated("users/{uid}", async (event) => {
+export const notifyAdminOnNewProfile = onDocumentCreated({ document: "users/{uid}", region: "asia-south1" }, async (event) => {
   const name = String(event.data?.get("displayName") ?? "Новый пользователь").slice(0, 80);
   const role = String(event.data?.get("role") ?? "пользователь");
   await notifyAdmins({ title: "Новая регистрация USTA.KZ", body: `${name} · ${role}`, type: "new_user" });
 });
 
-export const notifyUsersOnNewJob = onDocumentCreated("jobs/{jobId}", async (event) => {
+export const notifyUsersOnNewJob = onDocumentCreated({ document: "jobs/{jobId}", region: "asia-south1" }, async (event) => {
   const data = event.data?.data();
   if (!data || data.status !== "published") return;
   const title = String(data.title ?? "Новый заказ").slice(0, 70);
@@ -52,7 +52,7 @@ export const notifyUsersOnNewJob = onDocumentCreated("jobs/{jobId}", async (even
   });
 });
 
-export const notifyConversationRecipient = onDocumentCreated("conversations/{conversationId}/messages/{messageId}", async (event) => {
+export const notifyConversationRecipient = onDocumentCreated({ document: "conversations/{conversationId}/messages/{messageId}", region: "asia-south1" }, async (event) => {
   const message = event.data?.data();
   if (!message) return;
   const conversation = await db.collection("conversations").doc(event.params.conversationId).get();
@@ -64,14 +64,14 @@ export const notifyConversationRecipient = onDocumentCreated("conversations/{con
   await Promise.all(recipientIds.map((uid) => notifyUser(uid, { title: "Новое сообщение USTA.KZ", body, type: "new_message" })));
 });
 
-export const notifyAdminOnServiceRequest = onDocumentCreated("serviceRequests/{requestId}", async (event) => {
+export const notifyAdminOnServiceRequest = onDocumentCreated({ document: "serviceRequests/{requestId}", region: "asia-south1" }, async (event) => {
   const data = event.data?.data();
   if (!data) return;
   const title = data.type === "business" ? "Заявка USTA Business" : "Заявка на рекламу";
   await notifyAdmins({ title, body: `Новая заявка от ${String(data.phone ?? "пользователя")}`, type: "service_request" });
 });
 
-export const notifyOwnerOnRequestStatus = onDocumentUpdated("serviceRequests/{requestId}", async (event) => {
+export const notifyOwnerOnRequestStatus = onDocumentUpdated({ document: "serviceRequests/{requestId}", region: "asia-south1" }, async (event) => {
   const before = event.data?.before.data();
   const after = event.data?.after.data();
   if (!before || !after || before.status === after.status) return;

@@ -8,6 +8,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 
 import '../firebase_config.dart';
+import 'push_banner.dart';
 
 class NotificationService {
   NotificationService._();
@@ -16,30 +17,47 @@ class NotificationService {
   StreamSubscription<String>? _tokenSubscription;
   StreamSubscription<RemoteMessage>? _messageSubscription;
   String? _initializedKey;
+  String? _initializingKey;
 
   Future<void> initialize(User user, {required String role}) async {
     final result = await user.getIdTokenResult();
     final isAdmin = result.claims?['admin'] == true;
     final configKey = '${user.uid}:$role:$isAdmin';
-    if (_initializedKey == configKey) return;
-    _initializedKey = configKey;
-    final messaging = FirebaseMessaging.instance;
-    final permission = await messaging.requestPermission(alert: true, badge: true, sound: true);
-    if (permission.authorizationStatus == AuthorizationStatus.denied) return;
-    final token = await messaging.getToken();
-    if (token != null) await _saveToken(user.uid, token);
-    await messaging.subscribeToTopic('usta_all');
-    if (role == 'master' || role == 'company') await messaging.subscribeToTopic('usta_masters');
-    if (isAdmin) await messaging.subscribeToTopic('usta_admins');
-    _tokenChanges ??= messaging.onTokenRefresh;
-    await _tokenSubscription?.cancel();
-    _tokenSubscription = _tokenChanges!.listen((value) {
-      if (FirebaseAuth.instance.currentUser?.uid == user.uid) unawaited(_saveToken(user.uid, value));
-    });
-    await _messageSubscription?.cancel();
-    _messageSubscription = FirebaseMessaging.onMessage.listen((message) {
-      debugPrint('USTA.KZ notification received: ${message.messageId ?? 'message'}');
-    });
+    if (_initializedKey == configKey || _initializingKey == configKey) return;
+    _initializingKey = configKey;
+    try {
+      final messaging = FirebaseMessaging.instance;
+      final permission = await messaging.requestPermission(alert: true, badge: true, sound: true);
+      if (permission.authorizationStatus == AuthorizationStatus.denied) {
+        _initializedKey = configKey;
+        return;
+      }
+      final token = await messaging.getToken();
+      if (token != null) await _saveToken(user.uid, token);
+      await messaging.subscribeToTopic('usta_all');
+      if (role == 'master' || role == 'company') {
+        await messaging.subscribeToTopic('usta_masters');
+      }
+      if (isAdmin) await messaging.subscribeToTopic('usta_admins');
+      _tokenChanges ??= messaging.onTokenRefresh;
+      await _tokenSubscription?.cancel();
+      _tokenSubscription = _tokenChanges!.listen((value) {
+        if (FirebaseAuth.instance.currentUser?.uid == user.uid) {
+          unawaited(_saveToken(user.uid, value));
+        }
+      });
+      await _messageSubscription?.cancel();
+      _messageSubscription = FirebaseMessaging.onMessage.listen((message) {
+        final notification = message.notification;
+        showPushBanner(
+          notification?.title ?? 'Уведомление USTA.KZ',
+          notification?.body ?? 'Откройте приложение, чтобы посмотреть обновление.',
+        );
+      });
+      _initializedKey = configKey;
+    } finally {
+      if (_initializingKey == configKey) _initializingKey = null;
+    }
   }
 
   Future<void> detach(String uid) async {
