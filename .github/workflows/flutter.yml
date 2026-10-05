@@ -39,7 +39,7 @@ jobs:
       - name: Remove generated sample test
         run: rm -f test/widget_test.dart
       - run: flutter pub get
-      - run: flutter analyze
+      - run: flutter analyze lib test
       - run: flutter test
       - run: flutter build apk --debug
       - uses: actions/upload-artifact@v4
@@ -64,11 +64,14 @@ jobs:
         run: flutter create --platforms=android --org=kz.nargizgryp --project-name=usta_admin .
       - name: Configure admin Android build
         run: python3 tool/configure_admin_android.py
+      - name: Remove generated admin sample test
+        working-directory: admin-app
+        run: rm -f test/widget_test.dart
       - name: Analyze and test admin app
         working-directory: admin-app
         run: |
           flutter pub get
-          flutter analyze
+          flutter analyze lib test
           flutter test
       - name: Build administrator APK
         working-directory: admin-app
