@@ -46,6 +46,11 @@ jobs:
         with:
           name: USTA-KZ-debug-apk
           path: build/app/outputs/flutter-apk/app-debug.apk
+      - run: flutter build apk --release --target-platform android-arm64
+      - uses: actions/upload-artifact@v4
+        with:
+          name: USTA-KZ-arm64-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
   admin-android:
     runs-on: ubuntu-latest
     steps:
