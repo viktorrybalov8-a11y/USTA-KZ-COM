@@ -216,8 +216,6 @@ class _AdminDashboardState extends State<AdminDashboard> {
   }
 
 
-  const AdminDashboard({super.key});
-  @override
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(title: const Text('Заявки USTA.KZ'), actions: [
