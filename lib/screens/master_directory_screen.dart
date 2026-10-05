@@ -34,7 +34,10 @@ class MasterDirectoryScreen extends StatelessWidget {
                 return Card(
                   color: Colors.white,
                   child: ListTile(
-                    leading: CircleAvatar(child: Icon(profile['role'] == 'company' ? Icons.business_outlined : Icons.handyman_outlined)),
+                    leading: CircleAvatar(
+                      foregroundImage: (profile['photoUrl'] as String?) == null ? null : NetworkImage(profile['photoUrl'] as String),
+                      child: Icon(profile['role'] == 'company' ? Icons.business_outlined : Icons.handyman_outlined),
+                    ),
                     title: Text(profile['displayName'] as String? ?? 'Профиль USTA.KZ', style: const TextStyle(fontWeight: FontWeight.w700)),
                     subtitle: Text('${profile['role'] == 'company' ? 'Компания' : 'Мастер'} · ${profile['city'] as String? ?? ''}'),
                     trailing: self ? const Chip(label: Text('Вы')) : IconButton(

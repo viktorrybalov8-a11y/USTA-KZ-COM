@@ -7,3 +7,6 @@ android/key.properties
 *.jks
 *.keystore
 .env
+functions/node_modules/
+functions/lib/
+__pycache__/

@@ -5,6 +5,10 @@ service cloud.firestore {
       return request.auth != null && request.auth.token.phone_number != null;
     }
 
+    function isAdmin() {
+      return request.auth != null && request.auth.token.get('admin', false) == true;
+    }
+
     function validProfile(data, uid) {
       return data.uid == uid
         && data.phone == request.auth.token.phone_number
@@ -49,7 +53,13 @@ service cloud.firestore {
       allow delete: if signedIn() && request.auth.uid == uid;
 
       match /devices/{tokenId} {
-        allow read, create, update, delete: if signedIn() && request.auth.uid == uid;
+        allow read, delete: if signedIn() && request.auth.uid == uid;
+        allow create, update: if signedIn() && request.auth.uid == uid
+          && request.resource.data.keys().hasOnly(['token', 'platform', 'createdAt', 'updatedAt'])
+          && request.resource.data.token is string
+          && request.resource.data.token.size() >= 20
+          && request.resource.data.token.size() <= 4096
+          && request.resource.data.platform in ['android', 'ios', 'web'];
       }
     }
 
@@ -177,6 +187,46 @@ service cloud.firestore {
           && request.resource.data.keys().hasOnly(['senderId', 'text', 'createdAt']);
         allow update, delete: if false;
       }
+    }
+
+    match /serviceRequests/{requestId} {
+      allow create: if signedIn()
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.phone == request.auth.token.phone_number
+        && request.resource.data.status == 'new'
+        && request.resource.data.createdAt == request.time
+        && (
+          (request.resource.data.type == 'business'
+            && request.resource.data.planId == 'usta_business_monthly'
+            && request.resource.data.price == 9999
+            && request.resource.data.currency == 'KZT'
+            && request.resource.data.interval == 'month'
+            && request.resource.data.keys().hasOnly(['ownerUid', 'phone', 'type', 'planId', 'price', 'currency', 'interval', 'status', 'createdAt']))
+          ||
+          (request.resource.data.type == 'advertising'
+            && request.resource.data.company is string
+            && request.resource.data.company.size() >= 2
+            && request.resource.data.company.size() <= 100
+            && request.resource.data.placement in ['Баннер в приложении', 'Карточка в каталоге', 'Рассылка пользователям']
+            && request.resource.data.message is string
+            && request.resource.data.message.size() >= 5
+            && request.resource.data.message.size() <= 1000
+            && request.resource.data.keys().hasOnly(['ownerUid', 'phone', 'type', 'company', 'placement', 'message', 'status', 'createdAt']))
+        );
+      allow read: if signedIn() && (isAdmin() || resource.data.ownerUid == request.auth.uid);
+      allow update: if isAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'updatedAt'])
+        && request.resource.data.status in ['new', 'in_progress', 'done', 'rejected']
+        && request.resource.data.updatedAt == request.time;
+      allow delete: if false;
+    }
+
+    match /notifications/{uid}/items/{notificationId} {
+      allow read: if signedIn() && request.auth.uid == uid;
+      allow update: if signedIn() && request.auth.uid == uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['readAt'])
+        && request.resource.data.readAt == request.time;
+      allow create, delete: if false;
     }
 
     match /{document=**} {

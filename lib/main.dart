@@ -3,11 +3,13 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'firebase_config.dart';
 import 'screens/auth_screen.dart';
 import 'screens/home_screen.dart';
 import 'services/job_repository.dart';
+import 'services/notification_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +21,7 @@ Future<void> main() async {
   } else if (options != null) {
     try {
       await Firebase.initializeApp(options: options);
+      FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
       cloudEnabled = true;
     } catch (error) {
       firebaseError = 'Не удалось подключить Firebase: $error';
@@ -65,18 +68,32 @@ class AuthGate extends StatefulWidget {
 class _AuthGateState extends State<AuthGate> {
   StreamSubscription<User?>? _subscription;
   User? _user;
+  bool _isAdmin = false;
   bool _loading = true;
 
   @override
   void initState() {
     super.initState();
     _subscription = FirebaseAuth.instance.authStateChanges().listen((user) async {
+      final previousUser = _user;
+      if (previousUser != null && previousUser.uid != user?.uid) {
+        await NotificationService.instance.detach(previousUser.uid);
+      }
       await JobRepository.instance.connectCloud(
         firestore: FirebaseFirestore.instance,
         userId: user?.uid,
       );
+      var isAdmin = false;
+      if (user != null) {
+        try {
+          final token = await user.getIdTokenResult();
+          isAdmin = token.claims?['admin'] == true;
+        } catch (_) {
+          isAdmin = false;
+        }
+      }
       if (!mounted) return;
-      setState(() { _user = user; _loading = false; });
+      setState(() { _user = user; _isAdmin = isAdmin; _loading = false; });
     }, onError: (_) {
       if (mounted) setState(() => _loading = false);
     });
@@ -101,7 +118,11 @@ class _AuthGateState extends State<AuthGate> {
         if (snapshot.hasError) return _FirebaseFailure(message: 'Не удалось прочитать профиль. Проверьте правила Firestore.');
         final profile = snapshot.data?.data();
         if (profile == null) return ProfileSetupScreen(user: _user!);
-        return HomeScreen(currentUser: _user!, profile: profile);
+        unawaited(NotificationService.instance.initialize(
+          _user!,
+          role: profile['role'] as String? ?? 'customer',
+        ).catchError((Object _) {}));
+        return HomeScreen(currentUser: _user!, profile: profile, isAdmin: _isAdmin);
       },
     );
   }
