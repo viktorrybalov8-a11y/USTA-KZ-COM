@@ -1,12 +1,479 @@
-YªçŠx-®éÜj×¢ëiºÚ+Š§j[h‘éÜ¢éíïn6N‹Z–‹­¦ëeŠw¬Õ¥µÁ½ÉĞ€Á…­…”é±½Õ‘}™¥É•ÍÑ½É”½±½Õ‘}™¥É•ÍÑ½É”¹‘…ÉĞœì)¥µÁ½ÉĞ€Á…­…”é™±ÕÑÑ•È½µ…Ñ•É¥…°¹‘…ÉĞœì)¥µÁ½ÉĞ€Á…­…”é™¥É•‰…Í•}…ÕÑ ½™¥É•‰…Í•}…ÕÑ ¹‘…ÉĞœì)¥µÁ½ÉĞ€Á…­…”é±½Õ‘}™¥É•ÍÑ½É”½±½Õ‘}™¥É•ÍÑ½É”¹‘…ÉĞœì)¥µÁ½ÉĞ€Á…­…”é™¥É•‰…Í•}ÍÑ½É…”½™¥É•‰…Í•}ÍÑ½É…”¹‘…ÉĞœì)¥µÁ½ÉĞ€Á…­…”é¥µ…•}Á¥­•È½¥µ…•}Á¥­•È¹‘…ÉĞœì()¥µÁ½ÉĞ€œ¸¸½…ÁÁ}‘…Ñ„¹‘…ÉĞœì)¥µÁ½ÉĞ€œ¸¸½™¥É•‰…Í•}½¹™¥œ¹‘…ÉĞœì)¥µÁ½ÉĞ€œ¸¸½µ½‘•±Ì½©½ˆ¹‘…ÉĞœì)¥µÁ½ÉĞ€œ¸¸½Í•ÉÙ¥•Ì½¡…Ñ}Í•ÉÙ¥”¹‘…ÉĞœì)¥µÁ½ÉĞ€œ¸¸½Í•ÉÙ¥•Ì½©½‰}É•Á½Í¥Ñ½Éä¹‘…ÉĞœì)¥µÁ½ÉĞ€¡…Ñ}ÍÉ••¹Ì¹‘…ÉĞœì)¥µÁ½ÉĞ€É•…Ñ•}©½‰}ÍÉ••¸¹‘…ÉĞœì)¥µÁ½ÉĞ€µ…ÍÑ•É}‘¥É•Ñ½Éå}ÍÉ••¸¹‘…ÉĞœì)¥µÁ½ÉĞ€‰ÕÍ¥¹•ÍÍ}ÍÉ••¹Ì¹‘…ÉĞœì)¥µÁ½ÉĞ€¹½Ñ¥™¥…Ñ¥½¹Í}ÍÉ••¸¹‘…ÉĞœì()±…ÍÌ!½µ•MÉ••¸•áÑ•¹‘ÌMÑ…Ñ•™Õ±]¥‘•Ğì(€½¹ÍĞ!½µ•MÉ••¸¡íÍÕÁ•È¹­•ä°Ñ¡¥Ì¹ÕÉÉ•¹ÑUÍ•È°Ñ¡¥Ì¹ÁÉ½™¥±”°Ñ¡¥Ì¹¥Í‘µ¥¸€ô™…±Í•ô¤ì((€™¥¹…°UÍ•ÈüÕÉÉ•¹ÑUÍ•Èì(€™¥¹…°5…ÀñMÑÉ¥¹œ°‘å¹…µ¥ŒøüÁÉ½™¥±”ì(€™¥¹…°‰½½°¥Í‘µ¥¸ì((€½Ù•ÉÉ¥‘”(€MÑ…Ñ”ñ!½µ•MÉ••¸øÉ•…Ñ•MÑ…Ñ” ¤€ôø}!½µ•MÉ••¹MÑ…Ñ” ¤ì)ô()±…ÍÌ}!½µ•MÉ••¹MÑ…Ñ”•áÑ•¹‘ÌMÑ…Ñ”ñ!½µ•MÉ••¸øì(€™¥¹…°}É•Á½Í¥Ñ½Éä€ô)½‰I•Á½Í¥Ñ½Éä¹¥¹ÍÑ…¹”ì(€™¥¹…°}Í•…É €ôQ•áÑ‘¥Ñ¥¹½¹ÑÉ½±±•È ¤ì(€MÑÉ¥¹œ}…Ñ•½Éä€ô€ŸBKFBÔœì(€MÑÉ¥¹œ}¥Ñä€ô€ŸBKFBÔƒBÏBûFBûBÓBÀœì((€½Ù•ÉÉ¥‘”(€Ù½¥¥¹¥ÑMÑ…Ñ” ¤ì(€€€ÍÕÁ•È¹¥¹¥ÑMÑ…Ñ” ¤ì(€€€}É•Á½Í¥Ñ½Éä¹…‘‘1¥ÍÑ•¹•È¡}É•™É•Í ¤ì(€€€}Í•…É ¹…‘‘1¥ÍÑ•¹•È¡}É•™É•Í ¤ì(€ô((€½Ù•ÉÉ¥‘”(€Ù½¥‘¥ÍÁ½Í” ¤ì(€€€}É•Á½Í¥Ñ½Éä¹É•µ½Ù•1¥ÍÑ•¹•È¡}É•™É•Í ¤ì(€€€}Í•…É (€€€€€€¸¹É•µ½Ù•1¥ÍÑ•¹•È¡}É•™É•Í ¤(€€€€€€¸¹‘¥ÍÁ½Í” ¤ì(€€€ÍÕÁ•È¹‘¥ÍÁ½Í” ¤ì(€ô((€Ù½¥}É•™É•Í  ¤ì(€€€¥˜€¡µ½Õ¹Ñ•¤Í•ÑMÑ…Ñ”  ¤íô¤ì(€ô((€1¥ÍĞñ)½ˆø•Ğ}Ù¥Í¥‰±•)½‰Ìì(€€€™¥¹…°ÅÕ•Éä€ô}Í•…É ¹Ñ•áĞ¹ÑÉ¥´ ¤¹Ñ½1½İ•É…Í” ¤ì(€€€É•ÑÕÉ¸}É•Á½Í¥Ñ½Éä¹©½‰Ì¹İ¡•É” ¡©½ˆ¤ì(€€€€€™¥¹…°µ…Ñ¡•Í…Ñ•½Éä€ô}…Ñ•½Éä€ôô€ŸBKFBÔœñğ©½ˆ¹…Ñ•½Éä€ôô}…Ñ•½Éäì(€€€€€™¥¹…°µ…Ñ¡•Í¥Ñä€ô}¥Ñä€ôô€ŸBKFBÔƒBÏBûFBûBÓBÀœñğ©½ˆ¹¥Ñä¹Ñ½1½İ•É…Í” ¤€ôô}¥Ñä¹Ñ½1½İ•É…Í” ¤ì(€€€€€™¥¹…°µ…Ñ¡•ÍQ•áĞ€ôÅÕ•Éä¹¥ÍµÁÑäñğ(€€€€€€€€€€œ‘í©½ˆ¹Ñ¥Ñ±•ô€‘í©½ˆ¹¥Ñåô€‘í©½ˆ¹…Ñ•½Éåô€‘í©½ˆ¹‘•ÍÉ¥ÁÑ¥½¹ôœ(€€€€€€€€€€€€€€¹Ñ½1½İ•É…Í” ¤(€€€€€€€€€€€€€€¹½¹Ñ…¥¹Ì¡ÅÕ•Éä¤ì(€€€€€É•ÑÕÉ¸µ…Ñ¡•Í…Ñ•½Éä€˜˜µ…Ñ¡•Í¥Ñä€˜˜µ…Ñ¡•ÍQ•áĞì(€€€ô¤¹Ñ½1¥ÍĞ ¤ì(€ô((€½Ù•ÉÉ¥‘”(€]¥‘•Ğ‰Õ¥±¡	Õ¥±‘½¹Ñ•áĞ½¹Ñ•áĞ¤ì(€€€™¥¹…°©½‰Ì€ô}Ù¥Í¥‰±•)½‰Ìì(€€€™¥¹…°…Ñ•½É¥•Ì€ôlŸBKFBÔœ°€¸¸¹©½‰…Ñ•½É¥•Ítì(€€€É•ÑÕÉ¸M…™™½± (€€€€€…ÁÁ	…ÈèÁÁ	…È (€€€€€€€Ñ¥Ñ±”è½¹ÍĞQ•áĞ UMQ¹-hœ°ÍÑå±”èQ•áÑMÑå±”¡™½¹Ñ]•¥¡Ğè½¹Ñ]•¥¡Ğ¹ÜàÀÀ¤¤°(€€€€€€€…Ñ¥½¹Ìèİ¥‘•Ğ¹ÕÉÉ•¹ÑUÍ•È€ôô¹Õ±°(€€€€€€€€€€€€ül(€€€€€€€€€€€€€€€%½¹	ÕÑÑ½¸ (€€€€€€€€€€€€€€€€€Ñ½½±Ñ¥Àè€ŸBcB÷FBûFBóBÃFBãF<ƒBøƒBÿFBãBïBûBÛB×B÷BãBàœ°(€€€€€€€€€€€€€€€€€½¹AÉ•ÍÍ•è€ ¤€ôøÍ¡½İ‰½ÕÑ¥…±½œ (€€€€€€€€€€€€€€€€€€€½¹Ñ•áĞè½¹Ñ•áĞ°(€€€€€€€€€€€€€€€€€€€…ÁÁ±¥…Ñ¥½¹9…µ”è€UMQ¹-hœ°(€€€€€€€€€€€€€€€€€€€…ÁÁ±¥…Ñ¥½¹Y•ÉÍ¥½¸è€œÀ¸È¸Àœ°(€€€€€€€€€€€€€€€€€€€¡¥±‘É•¸è½¹ÍĞmQ•áĞ ŸBSB×BóBø·FB×BÛBãBğèƒBßBÃBëBÃBßF,ƒFFBÃB÷F?FFF<ƒFBûBïF3BëBøƒB÷BÀƒF7FBûBğƒFFFFBûBçFFBËBÔ¸œ¥t°(€€€€€€€€€€€€€€€€€€¤°(€€€€€€€€€€€€€€€€€¥½¸è½¹ÍĞ%½¸¡%½¹Ì¹¥¹™½}½ÕÑ±¥¹”¤°(€€€€€€€€€€€€€€€€¤°(€€€€€€€€€€€€€t(€€€€€€€€€€€€èl(€€€€€€€€€€€€€€€MÑÉ•…µ	Õ¥±‘•ÈñEÕ•ÉåM¹…ÁÍ¡½Ğñ5…ÀñMÑÉ¥¹œ°‘å¹…µ¥Œøøø (€€€€€€€€€€€€€€€€€ÍÑÉ•…´è¥É•‰…Í•¥É•ÍÑ½É”¹¥¹ÍÑ…¹”(€€€€€€€€€€€€€€€€€€€€€€¹½±±•Ñ¥½¸ ¹½Ñ¥™¥…Ñ¥½¹Ìœ¤(€€€€€€€€€€€€€€€€€€€€€€¹‘½Œ¡İ¥‘•Ğ¹ÕÉÉ•¹ÑUÍ•È„¹Õ¥¤(€€€€€€€€€€€€€€€€€€€€€€¹½±±•Ñ¥½¸ ¥Ñ•µÌœ¤(€€€€€€€€€€€€€€€€€€€€€€¹İ¡•É” É•…‘Ğœ°¥Í9Õ±°èÑÉÕ”¤(€€€€€€€€€€€€€€€€€€€€€€¹±¥µ¥Ğ Ä¤(€€€€€€€€€€€€€€€€€€€€€€¹Í¹…ÁÍ¡½ÑÌ ¤°(€€€€€€€€€€€€€€€€€‰Õ¥±‘•Èè€¡½¹Ñ•áĞ°Í¹…ÁÍ¡½Ğ¤€ôø%½¹	ÕÑÑ½¸ (€€€€€€€€€€€€€€€€€€€Ñ½½±Ñ¥Àè€ŸBBËB×BÓBûBóBïB×B÷BãF<œ°(€€€€€€€€€€€€€€€€€€€¥½¸è	…‘” (€€€€€€€€€€€€€€€€€€€€€¥Í1…‰•±Y¥Í¥‰±”èÍ¹…ÁÍ¡½Ğ¹‘…Ñ„ü¹‘½Ì¹¥Í9½ÑµÁÑä€ôôÑÉÕ”°(€€€€€€€€€€€€€€€€€€€€€¡¥±è½¹ÍĞ%½¸¡%½¹Ì¹¹½Ñ¥™¥…Ñ¥½¹Í}½ÕÑ±¥¹•¤°(€€€€€€€€€€€€€€€€€€€€¤°(€€€€€€€€€€€€€€€€€€€½¹AÉ•ÍÍ•è€ ¤€ôø9…Ù¥…Ñ½È¹ÁÕÍ ¡½¹Ñ•áĞ°5…Ñ•É¥…±A…•I½ÕÑ”ñÙ½¥ø¡‰Õ¥±‘•Èè€¡|¤€ôø½¹ÍĞ9½Ñ¥™¥…Ñ¥½¹ÍMÉ••¸ ¤¤¤°(€€€€€€€€€€€€€€€€€€¤°(€€€€€€€€€€€€€€€€¤°(€€€€€€€€€€€€€€€%½¹	ÕÑÑ½¸ (€€€€€€€€€€€€€€€€€Ñ½½±Ñ¥Àè€ŸBsBÃFFB×FBÀƒBàƒBëBûBóBÿBÃB÷BãBàœ°(€€€€€€€€€€€€€€€€€¥½¸è½¹ÍĞ%½¸¡%½¹Ì¹Á•½Á±•}½ÕÑ±¥¹”¤°(€€€€€€€€€€€€€€€€€½¹AÉ•ÍÍ•è€ ¤€ôø9…Ù¥…Ñ½È¹ÁÕÍ ¡½¹Ñ•áĞ°5…Ñ•É¥…±A…•I½ÕÑ”ñÙ½¥ø¡‰Õ¥±‘•Èè€¡|¤€ôø½¹ÍĞ5…ÍÑ•É¥É•Ñ½ÉåMÉ••¸ ¤¤¤°(€€€€€€€€€€€€€€€€¤°(€€€€€€€€€€€€€€€%½¹	ÕÑÑ½¸ (€€€€€€€€€€€€€€€€€Ñ½½±Ñ¥Àè€ŸB‡BûBûBÇF'B×B÷BãF<œ°(€€€€€€€€€€€€€€€€€¥½¸è½¹ÍĞ%½¸¡%½¹Ì¹¡…Ñ}‰Õ‰‰±•}½ÕÑ±¥¹”¤°(€€€€€€€€€€€€€€€€€½¹AÉ•ÍÍ•è€ ¤€ôø9…Ù¥…Ñ½È¹ÁÕÍ ¡½¹Ñ•áĞ°5…Ñ•É¥…±A…•I½ÕÑ”ñÙ½¥ø¡‰Õ¥±‘•Èè€¡|¤€ôø½¹ÍĞ¡…Ñ1¥ÍÑMÉ••¸ ¤¤¤°(€€€€€€€€€€€€€€€€¤°(€€€€€€€€€€€€€€€A½ÁÕÁ5•¹Õ	ÕÑÑ½¸ñMÑÉ¥¹œø (€€€€€€€€€€€€€€€€€Ñ½½±Ñ¥Àè€ŸBFBûFBãBïF0œ°(€€€€€€€€€€€€€€€€€¥½¸è½¹ÍĞ%½¸¡%½¹Ì¹…½Õ¹Ñ}¥É±•}½ÕÑ±¥¹•¤°(€€€€€€€€€€€€€€€€€½¹M•±•Ñ•è€¡Ù…±Õ”¤ì(€€€€€€€€€€€€€€€€€€€¥˜€¡Ù…±Õ”€ôô€Í¥¹}½ÕĞœ¤¥É•‰…Í•ÕÑ ¹¥¹ÍÑ…¹”¹Í¥¹=ÕĞ ¤ì(€€€€€€€€€€€€€€€€€€€¥˜€¡Ù…±Õ”€ôô€ÁÉ½™¥±”œ¤}Í¡½İAÉ½™¥±”¡½¹Ñ•áĞ¤ì(€€€€€€€€€€€€€€€€€€€¥˜€¡Ù…±Õ”€ôô€…‘µ¥¸œ¤9…Ù¥…Ñ½È¹ÁÕÍ ¡½¹Ñ•áĞ°5…Ñ•É¥…±A…•I½ÕÑ”ñÙ½¥ø¡‰Õ¥±‘•Èè€¡|¤€ôø½¹ÍĞ‘µ¥¹I•ÅÕ•ÍÑÍMÉ••¸ ¤¤¤ì(€€€€€€€€€€€€€€€€€ô°(€€€€€€€€€€€€€€€€€¥Ñ•µ	Õ¥±‘•Èè€¡|¤€ôøl(€€€€€€€€€€€€€€€€€€€½¹ÍĞA½ÁÕÁ5•¹Õ%Ñ•´¡Ù…±Õ”è€ÁÉ½™¥±”œ°¡¥±èQ•áĞ ŸBsBûBäƒBÿFBûFBãBïF0œ¤¤°(€€€€€€€€€€€€€€€€€€€¥˜€¡İ¥‘•Ğ¹¥Í‘µ¥¸¤½¹ÍĞA½ÁÕÁ5•¹Õ%Ñ•´¡Ù…±Õ”è€…‘µ¥¸œ°¡¥±èQ•áĞ ŸB_BÃF?BËBëBàƒBÃBÓBóBãB÷BãFFFBÃFBûFBÀœ¤¤°(€€€€€€€€€€€€€€€€€€€½¹ÍĞA½ÁÕÁ5•¹Õ%Ñ•´¡Ù…±Õ”è€Í¥¹}½ÕĞœ°¡¥±èQ•áĞ ŸBKF/BçFBàœ¤¤°(€€€€€€€€€€€€€€€€€t°(€€€€€€€€€€€€€€€€¤°(€€€€€€€€€€€€€t°(€€€€€€¤°(€€€€€™±½…Ñ¥¹Ñ¥½¹	ÕÑÑ½¸è±½…Ñ¥¹Ñ¥½¹	ÕÑÑ½¸¹•áÑ•¹‘• (€€€€€€€½¹AÉ•ÍÍ•è€ ¤€ôø9…Ù¥…Ñ½È¹ÁÕÍ  (€€€€€€€€€½¹Ñ•áĞ°(€€€€€€€€€5…Ñ•É¥…±A…•I½ÕÑ”ñÙ½¥ø¡‰Õ¥±‘•Èè€¡|¤€ôø½¹ÍĞÉ•…Ñ•)½‰MÉ••¸ ¤¤°(€€€€€€€€¤°(€€€€€€€¥½¸è½¹ÍĞ%½¸¡%½¹Ì¹…‘¤°(€€€€€€€±…‰•°è½¹ÍĞQ•áĞ ŸB‡BûBßBÓBÃFF0ƒBßBÃBëBÃBÜœ¤°(€€€€€€¤°(€€€€€‰½‘äè1¥ÍÑY¥•Ü (€€€€€€€Á…‘‘¥¹œè½¹ÍĞ‘•%¹Í•ÑÌ¹™É½µ1QI ÄØ°€à°€ÄØ°€äØ¤°(€€€€€€€¡¥±‘É•¸èl(€€€€€€€€€¥˜€ …}É•Á½Í¥Ñ½Éä¹¥Í±½Õ‘5½‘”¤(€€€€€€€€€€€…É (€€€€€€€€€€€€€½±½Èè½¹ÍĞ½±½È ÁáÑØ¤°(€€€€€€€€€€€€€¡¥±è½¹ÍĞA…‘‘¥¹œ (€€€€€€€€€€€€€€€Á…‘‘¥¹œè‘•%¹Í•ÑÌ¹…±° ÄÈ¤°(€€€€€€€€€€€€€€€¡¥±èQ•áĞ ŸBSB×BóBø·FB×BÛBãBğèƒBÿFBÇBïBãBëBÃFBãF<ƒBûBÇF'BãFƒBßBÃBëBÃBßBûBÈƒBËBëBïF;FBãFFF<ƒBÿBûFBïBÔƒB÷BÃFFFBûBçBëBà¥É•‰…Í”¸œ¤°(€€€€€€€€€€€€€€¤°(€€€€€€€€€€€€¤°(€€€€€€€€€¥˜€¡}É•Á½Í¥Ñ½Éä¹•ÉÉ½È€„ô¹Õ±°¤(€€€€€€€€€€€…É¡½±½Èè½±½ÉÌ¹É•¹Í¡…‘”ÔÀ°¡¥±èA…‘‘¥¹œ¡Á…‘‘¥¹œè½¹ÍĞ‘•%¹Í•ÑÌ¹…±° ÄÈ¤°¡¥±èQ•áĞ¡}É•Á½Í¥Ñ½Éä¹•ÉÉ½È„¤¤¤°(€€€€€€€€€¥˜€¡İ¥‘•Ğ¹ÕÉÉ•¹ÑUÍ•È€„ô¹Õ±°¤€¸¸¹l(€€€€€€€€€€€I½Ü¡¡¥±‘É•¸èl(€€€€€€€€€€€€€áÁ…¹‘•¡¡¥±è}M•ÉÙ¥•M¡½ÉÑÕĞ¡¥½¸è%½¹Ì¹İ½É­ÍÁ…•}ÁÉ•µ¥Õµ}½ÕÑ±¥¹•°Ñ¥Ñ±”è€UMQ	ÕÍ¥¹•ÍÌœ°ÍÕ‰Ñ¥Ñ±”è€œä€äääƒŠ
-à¿BóB×Fœ°½¹Q…Àè€ ¤€ôø9…Ù¥…Ñ½È¹ÁÕÍ ¡½¹Ñ•áĞ°5…Ñ•É¥…±A…•I½ÕÑ”ñÙ½¥ø¡‰Õ¥±‘•Èè€¡|¤€ôø½¹ÍĞ	ÕÍ¥¹•ÍÍMÉ••¸ ¤¤¤¤¤°(€€€€€€€€€€€€€½¹ÍĞM¥é•‘	½à¡İ¥‘Ñ è€à¤°(€€€€€€€€€€€€€áÁ…¹‘•¡¡¥±è}M•ÉÙ¥•M¡½ÉÑÕĞ¡¥½¸è%½¹Ì¹…µÁ…¥¹}½ÕÑ±¥¹•°Ñ¥Ñ±”è€ŸBƒB×BëBïBÃBóBÀœ°ÍÕ‰Ñ¥Ñ±”è€ŸBSBïF<ƒBÇBãBßB÷B×FBÀœ°½¹Q…Àè€ ¤€ôø9…Ù¥…Ñ½È¹ÁÕÍ ¡½¹Ñ•áĞ°5…Ñ•É¥…±A…•I½ÕÑ”ñÙ½¥ø¡‰Õ¥±‘•Èè€¡|¤€ôø½¹ÍĞ‘Ù•ÉÑ¥Í¥¹I•ÅÕ•ÍÑMÉ••¸ ¤¤¤¤¤°(€€€€€€€€€€€t¤°(€€€€€€€€€€€½¹ÍĞM¥é•‘	½à¡¡•¥¡Ğè€ÄĞ¤°(€€€€€€€€€t°(€€€€€€€€€½¹ÍĞQ•áĞ ŸBwBÃBçBÓBãFBÔƒFBÃBÇBûFFƒBãBïBàƒBóBÃFFB×FBÀœ°(€€€€€€€€€€€€€ÍÑå±”èQ•áÑMÑå±”¡™½¹ÑM¥é”è€ÈÔ°™½¹Ñ]•¥¡Ğè½¹Ñ]•¥¡Ğ¹ÜàÀÀ¤¤°(€€€€€€€€€½¹ÍĞM¥é•‘	½à¡¡•¥¡Ğè€Ø¤°(€€€€€€€€€Q•áĞ ŸB_BÃBëBÃBßF,ƒBÈƒBËBÃF#B×BğƒBÏBûFBûBÓBÔœ°ÍÑå±”èQ•áÑMÑå±”¡½±½Èè½±½ÉÌ¹É•ä¹Í¡…‘”ÜÀÀ¤¤°(€€€€€€€€€½¹ÍĞM¥é•‘	½à¡¡•¥¡Ğè€ÄØ¤°(€€€€€€€€€Q•áÑ¥•± (€€€€€€€€€€€½¹ÑÉ½±±•Èè}Í•…É °(€€€€€€€€€€€‘•½É…Ñ¥½¸è%¹ÁÕÑ•½É…Ñ¥½¸ (€€€€€€€€€€€€€¡¥¹ÑQ•áĞè€ŸBBûBãFBèƒBÿBøƒBßBÃBëBÃBßBÃBğœ°(€€€€€€€€€€€€€ÁÉ•™¥á%½¸è½¹ÍĞ%½¸¡%½¹Ì¹Í•…É ¤°(€€€€€€€€€€€€€ÍÕ™™¥á%½¸è}Í•…É ¹Ñ•áĞ¹¥ÍµÁÑä(€€€€€€€€€€€€€€€€€€ü¹Õ±°(€€€€€€€€€€€€€€€€€€è%½¹	ÕÑÑ½¸ (€€€€€€€€€€€€€€€€€€€€€Ñ½½±Ñ¥Àè€ŸB{FBãFFBãFF0ƒBÿBûBãFBèœ°(€€€€€€€€€€€€€€€€€€€€€½¹AÉ•ÍÍ•è}Í•…É ¹±•…È°(€€€€€€€€€€€€€€€€€€€€€¥½¸è½¹ÍĞ%½¸¡%½¹Ì¹±½Í”¤°(€€€€€€€€€€€€€€€€€€€€¤°(€€€€€€€€€€€€€™¥±±•èÑÉÕ”°(€€€€€€€€€€€€€™¥±±½±½Èè½±½ÉÌ¹İ¡¥Ñ”°(€€€€€€€€€€€€€‰½É‘•Èè=ÕÑ±¥¹•%¹ÁÕÑ	½É‘•È (€€€€€€€€€€€€€€€‰½É‘•ÉI…‘¥ÕÌè	½É‘•ÉI…‘¥ÕÌ¹¥ÉÕ±…È ÄØ¤°(€€€€€€€€€€€€€€€‰½É‘•ÉM¥‘”è	½É‘•ÉM¥‘”¹¹½¹”°(€€€€€€€€€€€€€€¤°(€€€€€€€€€€€€¤°(€€€€€€€€€€¤°(€€€€€€€€€½¹ÍĞM¥é•‘	½à¡¡•¥¡Ğè€ÄÈ¤°(€€€€€€€€€M¥é•‘	½à (€€€€€€€€€€€¡•¥¡Ğè€ĞÈ°(€€€€€€€€€€€¡¥±è1¥ÍÑY¥•Ü¹Í•Á…É…Ñ• (€€€€€€€€€€€€€ÍÉ½±±¥É•Ñ¥½¸èá¥Ì¹¡½É¥é½¹Ñ…°°(€€€€€€€€€€€€€¥Ñ•µ½Õ¹Ğè…Ñ•½É¥•Ì¹±•¹Ñ °(€€€€€€€€€€€€€Í•Á…É…Ñ½É	Õ¥±‘•Èè€¡|°}|¤€ôø½¹ÍĞM¥é•‘	½à¡İ¥‘Ñ è€à¤°(€€€€€€€€€€€€€¥Ñ•µ	Õ¥±‘•Èè€¡½¹Ñ•áĞ°¥¹‘•à¤ì(€€€€€€€€€€€€€€€™¥¹…°…Ñ•½Éä€ô…Ñ•½É¥•Ím¥¹‘•átì(€€€€€€€€€€€€€€€É•ÑÕÉ¸¡½¥•¡¥À (€€€€€€€€€€€€€€€€€±…‰•°èQ•áĞ¡…Ñ•½Éä¤°(€€€€€€€€€€€€€€€€€Í•±•Ñ•è}…Ñ•½Éä€ôô…Ñ•½Éä°(€€€€€€€€€€€€€€€€€½¹M•±•Ñ•è€¡|¤€ôøÍ•ÑMÑ…Ñ”  ¤€ôø}…Ñ•½Éä€ô…Ñ•½Éä¤°(€€€€€€€€€€€€€€€€¤ì(€€€€€€€€€€€€€ô°(€€€€€€€€€€€€¤°(€€€€€€€€€€¤°(€€€€€€€€€½¹ÍĞM¥é•‘	½à¡¡•¥¡Ğè€à¤°(€€€€€€€€€É½Á‘½İ¹	ÕÑÑ½¹½Éµ¥•±ñMÑÉ¥¹œø (€€€€€€€€€€€Ù…±Õ”è}¥Ñä°(€€€€€€€€€€€‘•½É…Ñ¥½¸è½¹ÍĞ%¹ÁÕÑ•½É…Ñ¥½¸¡±…‰•±Q•áĞè€ŸBOBûFBûBĞœ°ÁÉ•™¥á%½¸è%½¸¡%½¹Ì¹±½…Ñ¥½¹}½¹}½ÕÑ±¥¹•¤°™¥±±•èÑÉÕ”°™¥±±½±½Èè½±½ÉÌ¹İ¡¥Ñ”°‰½É‘•Èè=ÕÑ±¥¹•%¹ÁÕÑ	½É‘•È ¤¤°(€€€€€€€€€€€¥Ñ•µÌèlŸBKFBÔƒBÏBûFBûBÓBÀœ°€¸¸¹­…é…­¡ÍÑ…¹¥Ñ¥•Ít(€€€€€€€€€€€€€€€€¹µ…À ¡¥Ñä¤€ôøÉ½Á‘½İ¹5•¹Õ%Ñ•´¡Ù…±Õ”è¥Ñä°¡¥±èQ•áĞ¡¥Ñä¤¤¤(€€€€€€€€€€€€€€€€¹Ñ½1¥ÍĞ ¤°(€€€€€€€€€€€½¹¡…¹•è€¡¥Ñä¤ì¥˜€¡¥Ñä€„ô¹Õ±°¤Í•ÑMÑ…Ñ”  ¤€ôø}¥Ñä€ô¥Ñä¤ìô°(€€€€€€€€€€¤°(€€€€€€€€€½¹ÍĞM¥é•‘	½à¡¡•¥¡Ğè€ÄÈ¤°(€€€€€€€€€¥˜€¡©½‰Ì¹¥ÍµÁÑä¤(€€€€€€€€€€€}µÁÑåMÑ…Ñ”¡¡…Í=É‘•ÉÌè}É•Á½Í¥Ñ½Éä¹©½‰Ì¹¥Í9½ÑµÁÑä¤(€€€€€€€€€•±Í”(€€€€€€€€€€€€¸¸¹©½‰Ì¹µ…À ¡©½ˆ¤€ôø})½‰…É (€€€€€€€€€€€€€€€€€©½ˆè©½ˆ°(€€€€€€€€€€€€€€€€€½¹•±•Ñ”è€¡}É•Á½Í¥Ñ½Éä¹¥Í±½Õ‘5½‘”€˜˜©½ˆ¹½İ¹•É%€„ô}É•Á½Í¥Ñ½Éä¹ÕÉÉ•¹ÑUÍ•É%¤(€€€€€€€€€€€€€€€€€€€€€€ü¹Õ±°(€€€€€€€€€€€€€€€€€€€€€€è€ ¤€ôø}½¹™¥Éµ•±•Ñ”¡©½ˆ¤°(€€€€€€€€€€€€€€€€€½¹=Á•¸è€ ¤€ôø}Í¡½İ•Ñ…¥±Ì¡©½ˆ¤°(€€€€€€€€€€€€€€€€¤¤°(€€€€€€€t°(€€€€€€¤°(€€€€¤ì(€ô((€ÕÑÕÉ”ñÙ½¥ø}½¹™¥Éµ•±•Ñ”¡)½ˆ©½ˆ¤…Íå¹Œì(€€€™¥¹…°½¹™¥Éµ•€ô…İ…¥ĞÍ¡½İ¥…±½œñ‰½½°ø (€€€€€½¹Ñ•áĞè½¹Ñ•áĞ°(€€€€€‰Õ¥±‘•Èè€¡½¹Ñ•áĞ¤€ôø±•ÉÑ¥…±½œ (€€€€€€€Ñ¥Ñ±”è½¹ÍĞQ•áĞ ŸBBÓBÃBïBãFF0ƒBßBÃBëBÃBÜüœ¤°(€€€€€€€½¹Ñ•¹ĞèQ•áĞ¡}É•Á½Í¥Ñ½Éä¹¥Í±½Õ‘5½‘”(€€€€€€€€€€€€ü€Ÿ
-¬‘í©½ˆ¹Ñ¥Ñ±•÷
-ìƒBÇFBÓB×FƒFBÓBÃBïFGBôƒBãBÜƒBûBÇF'B×BäƒBïB×B÷FF,¸œ(€€€€€€€€€€€€è€Ÿ
-¬‘í©½ˆ¹Ñ¥Ñ±•÷
-ìƒBÇFBÓB×FƒFBÓBÃBïFGBôƒFƒF7FBûBÏBøƒFFFFBûBçFFBËBÀ¸œ¤°(€€€€€€€…Ñ¥½¹Ìèl(€€€€€€€€€Q•áÑ	ÕÑÑ½¸¡½¹AÉ•ÍÍ•è€ ¤€ôø9…Ù¥…Ñ½È¹Á½À¡½¹Ñ•áĞ°™…±Í”¤°¡¥±è½¹ÍĞQ•áĞ ŸB{FBóB×B÷BÀœ¤¤°(€€€€€€€€€¥±±•‘	ÕÑÑ½¸¡½¹AÉ•ÍÍ•è€ ¤€ôø9…Ù¥…Ñ½È¹Á½À¡½¹Ñ•áĞ°ÑÉÕ”¤°¡¥±è½¹ÍĞQ•áĞ ŸBBÓBÃBïBãFF0œ¤¤°(€€€€€€€t°(€€€€€€¤°(€€€€¤ì(€€€¥˜€¡½¹™¥Éµ•“n6¶‰ËkºwµçBFW‡B†¦ö"æ'VFvWBÓÒò}	íMm]"İR=­}Òr¢rG¶¦ö"æ'VFvWGÒ(+‚r’À¢6öç7B6—¦VD&÷‚††V–v‡C¢"’À¢–b†¦ö"æ–ÖvUW&Ç2æ—4æ÷DV×G’’ââå°¢6öç7B6—¦VD&÷‚††V–v‡C¢‚’À¢6—¦VD&÷‚€¢†V–v‡C¢CÀ¢6†–ÆC¢Æ—7Ef–Wrç6W&FVB€¢67&öÆÄF—&V7F–öã¢†—2æ†÷&—¦öçFÂÀ¢—FVÔ6÷VçC¢¦ö"æ–ÖvUW&Ç2æÆVæwF‚À¢6W&F÷$'V–ÆFW#¢…òÂõò’Óâ6öç7B6—¦VD&÷‚‡v–GFƒ¢‚’À¢—FVÔ'V–ÆFW#¢…òÂ–æFW‚’Óâ6Æ—%&V7B€¢&÷&FW%&F—W3¢&÷&FW%&F—W2æ6—&7VÆ"ƒ’À¢6†–ÆC¢–ÖvRææWGv÷&²†¦ö"æ–ÖvUW&Ç5¶–æFW…ÒÂv–GFƒ¢ƒÂf—C¢&÷„f—Bæ6÷fW"À¢W'&÷$'V–ÆFW#¢…òÂõòÂõõò’Óâ6öç7B6—¦VD&÷‚‡v–GFƒ¢ƒÂ6†–ÆC¢–6öâ„–6öç2æ'&ö¶Våö–ÖvUö÷WFÆ–æVB’’’À¢’À¢’À¢’À¢ÒÀ¢6öç7B6—¦VD&÷‚††V–v‡C¢"’À¢FW‡B†¦ö"æFW67&—F–öâ’À¢–b‡v–FvWBæ7W'&VçEW6W"ÒçVÆÂbb¦ö"æ÷væW$–BÒçVÆÂbb¦ö"æ÷væW$–BÒv–FvWBæ7W'&VçEW6W"çV–B’ââå°¢6öç7B6—¦VD&÷‚††V–v‡C¢B’À¢6—¦VD&÷‚€¢v–GFƒ¢F÷V&ÆRæ–æf–æ—G’À¢6†–ÆC¢f–ÆÆVD'WGFöâæ–6öâ€¢öå&W76VC¢‚’7–æ2°¢G'’°¢f–æÂ–BÒv—B6†E6W'f–6Ræ–ç7Fæ6Ræ÷Vä6öçfW'6F–öâ†¦ö"æ÷væW$–B“°¢–b‚6öçFW‡BæÖ÷VçFVB’&WGW&ã°¢æf–vF÷"ç÷†6öçFW‡B“°¢v—Bæf–vF÷"çW6‚†6öçFW‡BÂÖFW&–ÅvU&÷WFSÇfö–Câ†'V–ÆFW#¢…ò’Óâ6†EF‡&VE67&VVâ†6öçfW'6F–öä–C¢–BÂ÷F†W%W6W$–C¢¦ö"æ÷væW$–B’’“°¢Ò6F6‚…ò’°¢–b†6öçFW‡BæÖ÷VçFVB’66fföÆDÖW76VævW"æöb†6öçFW‡B’ç6†÷u6æ6´&"†6öç7B6æ6´&"†6öçFVçC¢FW‡B‚}	İR=M½íÂí-­½-Âı]]ı­2âr’’“°¢Ğ¢ÒÀ¢–6öã¢6öç7B–6öâ„–6öç2æ6†Eö÷WFÆ–æVB’À¢Æ&VÃ¢6öç7BFW‡B‚}	İı-Â}­}}­2r’À¢’À¢’À¢ÒÀ¢6öç7B6—¦VD&÷‚††V–v‡C¢"’À¢6VÆV7F&ÆUFW‡B‚}
--]½]MíÓ¢G¶¦ö"ç†öæWÒr’À¢ÒÀ¢’À¢’À¢’À¢“°¢Ğ ¢fö–B÷6†÷u&öf–ÆR„'V–ÆD6öçFW‡B6öçFW‡B’°¢f–æÂ&öf–ÆRÒv–FvWBç&öf–ÆRóò6öç7BÅ7G&–ærÂG–æÖ–3ç·Ó°¢f"†÷FõW&ÂÒ&öf–ÆU²w†÷FõW&ÂuÒ27G&–æsó°¢f"WÆöF–ærÒfÇ6S°¢6†÷tF–ÆösÇfö–Câ€¢6öçFW‡C¢6öçFW‡BÀ¢'V–ÆFW#¢†F–Æöt6öçFW‡B’Óâ7FFVgVÄ'V–ÆFW"€¢'V–ÆFW#¢†6öçFW‡BÂ6WDF–Æöu7FFR’ÓâÆW'DF–Æör€¢F—FÆS¢FW‡B‡&öf–ÆU²vF—7Æ”æÖRuÒ27G&–æsòóò}	Íí’ıíM½Âr’À¢6öçFVçC¢6öÇVÖâ€¢Ö–ä†—56—¦S¢Ö–ä†—56—¦RæÖ–âÀ¢6†–ÆG&Vã¢°¢6—&6ÆTfF"€¢&F—W3¢3bÀ¢f÷&Vw&÷VæD–ÖvS¢†÷FõW&ÂÓÒçVÆÂòçVÆÂ¢æWGv÷&´–ÖvR‡†÷FõW&Â’À¢6†–ÆC¢6öç7B–6öâ„–6öç2çW'6öåö÷WFÆ–æRÂ6—¦S¢3b’À¢’À¢FW‡D'WGFöâæ–6öâ€¢öå&W76VC¢WÆöF–æròçVÆÂ¢‚’7–æ2°¢–b‚f—&V&6T6öæf–ræ†57F÷&vR’°¢66fföÆDÖW76VævW"æöb†6öçFW‡B’ç6†÷u6æ6´&"†6öç7B6æ6´&"†6öçFVçC¢FW‡B‚}
-İ}½İ-í-Rf—&V&6R7F÷&vRâr’’“°¢&WGW&ã°¢Ğ¢G'’°¢f–æÂ–ÖvRÒv—B–ÖvU–6¶W"‚’ç–6´–ÖvR‡6÷W&6S¢–ÖvU6÷W&6RævÆÆW'’ÂÖ…v–GFƒ¢#ÂÖ„†V–v‡C¢#Â–ÖvUVÆ—G“¢ƒ“°¢–b†–ÖvRÓÒçVÆÂÇÂ6öçFW‡BæÖ÷VçFVB’&WGW&ã°¢f–æÂ'—FW2Òv—B–ÖvRç&VD4'—FW2‚“°¢–b†'—FW2æÆVæwF‚âR¢#B¢#B’F‡&÷r7FFTW'&÷"‚}
-Mí-âMí½mİâ½-ÂÍ]İÍRR	Í	âr“°¢6WDF–Æöu7FFR‚‚’ÓâWÆöF–ærÒG'VR“°¢f–æÂW6W"Òv–FvWBæ7W'&VçEW6W"°¢f–æÂÖ–ÖUG—RÒ–ÖvRæÖ–ÖUG—Róòv–ÖvRö§Vrs°¢–b‚6öç7B²v–ÖvRö§VrrÂv–ÖvR÷ærrÂv–ÖvR÷vV'wÒæ6öçF–ç2†Ö–ÖUG—R’’F‡&÷r7FFTW'&÷"‚}	-½]-RMí-â"MíÍ-R¥TrÂär½‚vV%âr“°¢f–æÂ&VbÒf—&V&6U7F÷&vRæ–ç7Fæ6Rç&Vb‚w&öf–ÆW2òG·W6W"çV–GÒöfF"r“°¢v—B&VbçWDFF†'—FW2Â6WGF&ÆTÖWFFF†6öçFVçEG—S¢Ö–ÖUG—R’“°¢f–æÂW&ÂÒv—B&VbævWDF÷væÆöEU$Â‚“°¢f–æÂf—&W7F÷&RÒf—&V&6Tf—&W7F÷&Ræ–ç7Fæ6S°¢f–æÂ&F6‚Òf—&W7F÷&Ræ&F6‚‚“°¢&F6‚çWFFR†f—&W7F÷&Ræ6öÆÆV7F–öâ‚wW6W'2r’æFö2‡W6W"çV–B’Â²w†÷FõW&Âs¢W&ÂÂwWFFVDBs¢f–VÆEfÇVRç6W'fW%F–ÖW7F×‚—Ò“°¢&F6‚çWFFR†f—&W7F÷&Ræ6öÆÆV7F–öâ‚wV&Æ–5&öf–ÆW2r’æFö2‡W6W"çV–B’Â²w†÷FõW&Âs¢W&ÂÂwWFFVDBs¢f–VÆEfÇVRç6W'fW%F–ÖW7F×‚—Ò“°¢v—B&F6‚æ6öÖÖ—B‚“°¢–b†6öçFW‡BæÖ÷VçFVB’6WDF–Æöu7FFR‚‚’²†÷FõW&ÂÒW&Ã²WÆöF–ærÒfÇ6S²Ò“°¢Ò6F6‚†W'&÷"’°¢–b†6öçFW‡BæÖ÷VçFVB’6WDF–Æöu7FFR‚‚’ÓâWÆöF–ærÒfÇ6R“°¢–b†6öçFW‡BæÖ÷VçFVB’66fföÆDÖW76VævW"æöb†6öçFW‡B’ç6†÷u6æ6´&"…6æ6´&"†6öçFVçC¢FW‡B†W'&÷"—27FFTW'&÷"òW'&÷"æÖW76vR¢}	İR=M½íÂ}==}-ÂMí-ââr’’“°¢Ğ¢ÒÀ¢–6öã¢WÆöF–ærò6öç7B6—¦VD&÷‚ç7V&R†F–ÖVç6–öã¢bÂ6†–ÆC¢6—&7VÆ%&öw&W74–æF–6F÷"‡7G&ö¶Uv–GFƒ¢"’’¢6öç7B–6öâ„–6öç2ç†÷Fõö6ÖW&ö÷WFÆ–æVB’À¢Æ&VÃ¢FW‡B‡WÆöF–ærò}	}==m]Î(
-br¢}	}Í]İ-ÂMí-âr’À¢’À¢6öç7B6—¦VD&÷‚††V–v‡C¢‚’À¢FW‡B…°¢÷&öÆTæÖR‡&öf–ÆU²w&öÆRuÒ27G&–æsò’À¢&öf–ÆU²v6—G’uÒ27G&–æsòóòrrÀ¢v–FvWBæ7W'&VçEW6W#òç†öæTçVÖ&W"óòrrÀ¢Òçv†W&R‚‡fÇVR’ÓâfÇVRæ—4æ÷DV×G’’æ¦ö–â‚uÆâr’ÂFW‡DÆ–vã¢FW‡DÆ–vâæ6VçFW"’À¢ÒÀ¢’À¢7F–öç3¢µFW‡D'WGFöâ†öå&W76VC¢‚’Óâæf–vF÷"ç÷†F–Æöt6öçFW‡B’Â6†–ÆC¢6öç7BFW‡B‚}	}­½-Âr’•ÒÀ¢’À¢’À¢“°¢Ğ ¢7G&–ær÷&öÆTæÖR…7G&–æsò&öÆR’Óâ7v—F6‚‡&öÆR’°¢vÖ7FW"rÓâ}	Í-]rÀ¢v6ö×ç’rÓâ}	­íÍıİòrÀ¢v7W7FöÖW"rÓâ}	}­}}¢rÀ¢òÓârrÀ¢Ó°§Ğ ¦6Æ72ô¦ö$6&BW‡FVæG27FFVÆW75v–FvWB°¢6öç7Bô¦ö$6&B‡·&WV—&VBF†—2æ¦ö"Â&WV—&VBF†—2æöäFVÆWFRÂ&WV—&VBF†—2æöä÷VçÒ“° ¢f–æÂ¦ö"¦ö#°¢f–æÂfö–D6ÆÆ&6³òöäFVÆWFS°¢f–æÂfö–D6ÆÆ&6²öä÷Vã° ¢÷fW'&–FP¢v–FvWB'V–ÆB„'V–ÆD6öçFW‡B6öçFW‡B’Óâ6&B€¢6öÆ÷#¢6öÆ÷'2çv†—FRÀ¢Ö&v–ã¢6öç7BVFvT–ç6WG2æöæÇ’†&÷GFöÓ¢’À¢6†–ÆC¢–æµvVÆÂ€¢&÷&FW%&F—W3¢&÷&FW%&F—W2æ6—&7VÆ"ƒ"’À¢öåF¢öä÷VâÀ¢6†–ÆC¢FF–ær€¢FF–æs¢6öç7BVFvT–ç6WG2æg&öÔÅE$"ƒbÂ"ÂBÂB’À¢6†–ÆC¢&÷r€¢7&÷74†—4Æ–væÖVçC¢7&÷74†—4Æ–væÖVçBç7F'BÀ¢6†–ÆG&Vã¢°¢¦ö"æ–ÖvUW&Ç2æ—4æ÷DV×G¢ò6Æ—%&V7B€¢&÷&FW%&F—W3¢&÷&FW%&F—W2æ6—&7VÆ"ƒ#B’À¢6†–ÆC¢–ÖvRææWGv÷&²†¦ö"æ–ÖvUW&Ç2æf—'7BÂv–GFƒ¢C‚Â†V–v‡C¢C‚Âf—C¢&÷„f—Bæ6÷fW"À¢W'&÷$'V–ÆFW#¢…òÂõòÂõõò’Óâ6öç7B6—&6ÆTfF"†6†–ÆC¢–6öâ„–6öç2æ†æG–Öåö÷WFÆ–æVB’’’À¢¢¢6öç7B6—&6ÆTfF"†6†–ÆC¢–6öâ„–6öç2æ†æG–Öåö÷WFÆ–æVB’’À¢6öç7B6—¦VD&÷‚‡v–GFƒ¢"’À¢W‡æFVB€¢6†–ÆC¢6öÇVÖâ†7&÷74†—4Æ–væÖVçC¢7&÷74†—4Æ–væÖVçBç7F'BÂ6†–ÆG&Vã¢°¢FW‡B†¦ö"çF—FÆRÂ7G–ÆS¢6öç7BFW‡E7G–ÆR†föçEvV–v‡C¢föçEvV–v‡BçssÂföçE6—¦S¢b’’À¢6öç7B6—¦VD&÷‚††V–v‡C¢b’À¢FW‡B‚rG¶¦ö"æ6—G—Ò+rG¶¦ö"æ6FVv÷'—ÒrÂ7G–ÆS¢FW‡E7G–ÆR†6öÆ÷#¢6öÆ÷'2æw&W’ç6†FSs’’À¢6öç7B6—¦VD&÷‚††V–v‡C¢b’À¢FW‡B†¦ö"æ'VFvWBÓÒò}	íMm]"İR=­}Òr¢rG¶¦ö"æ'VFvWGÒ(+‚rÀ¢7G–ÆS¢6öç7BFW‡E7G–ÆR†föçEvV–v‡C¢föçEvV–v‡Bçss’’À¢Ò’À¢’À¢–b†öäFVÆWFRÒçVÆÂ¢÷WÖVçT'WGFöãÅ7G&–æsâ€¢FööÇF—¢}	M]--ò}­}íÂrÀ¢öå6VÆV7FVC¢…ò’ÓâöäFVÆWFR‚’À¢—FVÔ'V–ÆFW#¢…ò’Óâ6öç7Bµ÷WÖVçT—FVÒ‡fÇVS¢vFVÆWFRrÂ6†–ÆC¢FW‡B‚}
-=M½-Âr’•ÒÀ¢’À¢ÒÀ¢’À¢’À¢’À¢“°§Ğ ¦6Æ72ôV×G•7FFRW‡FVæG27FFVÆW75v–FvWB°¢6öç7BôV×G•7FFR‡·&WV—&VBF†—2æ†4÷&FW'7Ò“°¢f–æÂ&ööÂ†4÷&FW'3° ¢÷fW'&–FP¢v–FvWB'V–ÆB„'V–ÆD6öçFW‡B6öçFW‡B’Óâ6&B€¢6öÆ÷#¢6öÆ÷'2çv†—FRÀ¢6†–ÆC¢FF–ær€¢FF–æs¢6öç7BVFvT–ç6WG2æÆÂƒ#B’À¢6†–ÆC¢6öÇVÖâ†6†–ÆG&Vã¢°¢–6öâ††4÷&FW'2ò–6öç2ç6V&6…ööfb¢–6öç2çv÷&µö÷WFÆ–æRÂ6—¦S¢C"Â6öÆ÷#¢6öÆ÷'2çFVÂ’À¢6öç7B6—¦VD&÷‚††V–v‡C¢’À¢FW‡B††4÷&FW'2ò}	İ}]=âİRİM]İâr¢}	ıí­İ]"}­}í"rÀ¢7G–ÆS¢6öç7BFW‡E7G–ÆR†föçEvV–v‡C¢föçEvV–v‡Bæ&öÆB’’À¢6öç7B6—¦VD&÷‚††V–v‡C¢B’À¢FW‡B††4÷&FW'2ò}	}Í]İ-R}ıí½‚-½]-RM===â­-]=íââr¢}
-í}M-Rı]-½’}­rİİ-íÂ=-í--Râr’À¢Ò’À¢’À¢“°§Ğ ¦6Æ72õ6W'f–6U6†÷'F7WBW‡FVæG27FFVÆW75v–FvWB°¢6öç7Bõ6W'f–6U6†÷'F7WB‡·&WV—&VBF†—2æ–6öâÂ&WV—&VBF†—2çF—FÆRÂ&WV—&VBF†—2ç7V'F—FÆRÂ&WV—&VBF†—2æöåFÒ“°¢f–æÂ–6öäFF–6öã°¢f–æÂ7G&–ærF—FÆS°¢f–æÂ7G&–ær7V'F—FÆS°¢f–æÂfö–D6ÆÆ&6²öåF° ¢÷fW'&–FP¢v–FvWB'V–ÆB„'V–ÆD6öçFW‡B6öçFW‡B’Óâ6&B€¢6öÆ÷#¢6öÆ÷'2çv†—FRÀ¢6†–ÆC¢–æµvVÆÂ€¢&÷&FW%&F—W3¢&÷&FW%&F—W2æ6—&7VÆ"ƒ"’À¢öåF¢öåFÀ¢6†–ÆC¢FF–ær€¢FF–æs¢6öç7BVFvT–ç6WG2æÆÂƒ"’À¢6†–ÆC¢&÷r†6†–ÆG&Vã¢°¢–6öâ†–6öâÂ6öÆ÷#¢6öç7B6öÆ÷"ƒ„dcCd#T’’À¢6öç7B6—¦VD&÷‚‡v–GFƒ¢‚’À¢W‡æFVB†6†–ÆC¢6öÇVÖâ†7&÷74†—4Æ–væÖVçC¢7&÷74†—4Æ–væÖVçBç7F'BÂ6†–ÆG&Vã¢°¢FW‡B‡F—FÆRÂÖ„Æ–æW3¢Â÷fW&fÆ÷s¢FW‡D÷fW&fÆ÷ræVÆÆ—6—2Â7G–ÆS¢6öç7BFW‡E7G–ÆR†föçEvV–v‡C¢föçEvV–v‡Bçss’’À¢FW‡B‡7V'F—FÆRÂÖ„Æ–æW3¢Â÷fW&fÆ÷s¢FW‡D÷fW&fÆ÷ræVÆÆ—6—2Â7G–ÆS¢FW‡E7G–ÆR†föçE6—¦S¢"Â6öÆ÷#¢6öÆ÷'2æw&W’ç6†FSs’’À¢Ò’’À¢Ò’À¢’À¢’À¢“°§Ğ
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:image_picker/image_picker.dart';
+
+import '../app_data.dart';
+import '../firebase_config.dart';
+import '../models/job.dart';
+import '../services/chat_service.dart';
+import '../services/job_repository.dart';
+import 'chat_screens.dart';
+import 'create_job_screen.dart';
+import 'master_directory_screen.dart';
+import 'business_screens.dart';
+import 'notifications_screen.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key, this.currentUser, this.profile, this.isAdmin = false});
+
+  final User? currentUser;
+  final Map<String, dynamic>? profile;
+  final bool isAdmin;
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  final _repository = JobRepository.instance;
+  final _search = TextEditingController();
+  String _category = 'Ğ’ÑĞµ';
+  String _city = 'Ğ’ÑĞµ Ğ³Ğ¾Ñ€Ğ¾Ğ´Ğ°';
+
+  @override
+  void initState() {
+    super.initState();
+    _repository.addListener(_refresh);
+    _search.addListener(_refresh);
+  }
+
+  @override
+  void dispose() {
+    _repository.removeListener(_refresh);
+    _search
+      ..removeListener(_refresh)
+      ..dispose();
+    super.dispose();
+  }
+
+  void _refresh() {
+    if (mounted) setState(() {});
+  }
+
+  List<Job> get _visibleJobs {
+    final query = _search.text.trim().toLowerCase();
+    return _repository.jobs.where((job) {
+      final matchesCategory = _category == 'Ğ’ÑĞµ' || job.category == _category;
+      final matchesCity = _city == 'Ğ’ÑĞµ Ğ³Ğ¾Ñ€Ğ¾Ğ´Ğ°' || job.city.toLowerCase() == _city.toLowerCase();
+      final matchesText = query.isEmpty ||
+          '${job.title} ${job.city} ${job.category} ${job.description}'
+              .toLowerCase()
+              .contains(query);
+      return matchesCategory && matchesCity && matchesText;
+    }).toList();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final jobs = _visibleJobs;
+    final categories = ['Ğ’ÑĞµ', ...jobCategories];
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('USTA.KZ', style: TextStyle(fontWeight: FontWeight.w800)),
+        actions: widget.currentUser == null
+            ? [
+                IconButton(
+                  tooltip: 'Ğ˜Ğ½Ñ„Ğ¾Ñ€Ğ¼Ğ°Ñ†Ğ¸Ñ Ğ¾ Ğ¿Ñ€Ğ¸Ğ»Ğ¾Ğ¶ĞµĞ½Ğ¸Ğ¸',
+                  onPressed: () => showAboutDialog(
+                    context: context,
+                    applicationName: 'USTA.KZ',
+                    applicationVersion: '0.2.0',
+                    children: const [Text('Ğ”ĞµĞ¼Ğ¾-Ñ€ĞµĞ¶Ğ¸Ğ¼: Ğ·Ğ°ĞºĞ°Ğ·Ñ‹ Ñ…Ñ€Ğ°Ğ½ÑÑ‚ÑÑ Ñ‚Ğ¾Ğ»ÑŒĞºĞ¾ Ğ½Ğ° ÑÑ‚Ğ¾Ğ¼ ÑƒÑÑ‚Ñ€Ğ¾Ğ¹ÑÑ‚Ğ²Ğµ.')],
+                  ),
+                  icon: const Icon(Icons.info_outline),
+                ),
+              ]
+            : [
+                StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+                  stream: FirebaseFirestore.instance
+                      .collection('notifications')
+                      .doc(widget.currentUser!.uid)
+                      .collection('items')
+                      .where('readAt', isNull: true)
+                      .limit(1)
+                      .snapshots(),
+                  builder: (context, snapshot) => IconButton(
+                    tooltip: 'Ğ£Ğ²ĞµĞ´Ğ¾Ğ¼Ğ»ĞµĞ½Ğ¸Ñ',
+                    icon: Badge(
+                      isLabelVisible: snapshot.data?.docs.isNotEmpty == true,
+                      child: const Icon(Icons.notifications_outlined),
+                    ),
+                    onPressed: () => Navigator.push(context, MaterialPageRoute<void>(builder: (_) => const NotificationsScreen())),
+                  ),
+                ),
+                IconButton(
+                  tooltip: 'ĞœĞ°ÑÑ‚ĞµÑ€Ğ° Ğ¸ ĞºĞ¾Ğ¼Ğ¿Ğ°Ğ½Ğ¸Ğ¸',
+                  icon: const Icon(Icons.people_outline),
+                  onPressed: () => Navigator.push(context, MaterialPageRoute<void>(builder: (_) => const MasterDirectoryScreen())),
+                ),
+                IconButton(
+                  tooltip: 'Ğ¡Ğ¾Ğ¾Ğ±Ñ‰ĞµĞ½Ğ¸Ñ',
+                  icon: const Icon(Icons.chat_bubble_outline),
+                  onPressed: () => Navigator.push(context, MaterialPageRoute<void>(builder: (_) => const ChatListScreen())),
+                ),
+                PopupMenuButton<String>(
+                  tooltip: 'ĞŸÑ€Ğ¾Ñ„Ğ¸Ğ»ÑŒ',
+                  icon: const Icon(Icons.account_circle_outlined),
+                  onSelected: (value) {
+                    if (value == 'sign_out') FirebaseAuth.instance.signOut();
+                    if (value == 'profile') _showProfile(context);
+                    if (value == 'admin') Navigator.push(context, MaterialPageRoute<void>(builder: (_) => const AdminRequestsScreen()));
+                  },
+                  itemBuilder: (_) => [
+                    const PopupMenuItem(value: 'profile', child: Text('ĞœĞ¾Ğ¹ Ğ¿Ñ€Ğ¾Ñ„Ğ¸Ğ»ÑŒ')),
+                    if (widget.isAdmin) const PopupMenuItem(value: 'admin', child: Text('Ğ—Ğ°ÑĞ²ĞºĞ¸ Ğ°Ğ´Ğ¼Ğ¸Ğ½Ğ¸ÑÑ‚Ñ€Ğ°Ñ‚Ğ¾Ñ€Ğ°')),
+                    const PopupMenuItem(value: 'sign_out', child: Text('Ğ’Ñ‹Ğ¹Ñ‚Ğ¸')),
+                  ],
+                ),
+              ],
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () => Navigator.push(
+          context,
+          MaterialPageRoute<void>(builder: (_) => const CreateJobScreen()),
+        ),
+        icon: const Icon(Icons.add),
+        label: const Text('Ğ¡Ğ¾Ğ·Ğ´Ğ°Ñ‚ÑŒ Ğ·Ğ°ĞºĞ°Ğ·'),
+      ),
+      body: ListView(
+        padding: const EdgeInsets.fromLTRB(16, 8, 16, 96),
+        children: [
+          if (!_repository.isCloudMode)
+            Card(
+              color: const Color(0xFFFFF4D6),
+              child: const Padding(
+                padding: EdgeInsets.all(12),
+                child: Text('Ğ”ĞµĞ¼Ğ¾-Ñ€ĞµĞ¶Ğ¸Ğ¼: Ğ¿ÑƒĞ±Ğ»Ğ¸ĞºĞ°Ñ†Ğ¸Ñ Ğ¾Ğ±Ñ‰Ğ¸Ñ… Ğ·Ğ°ĞºĞ°Ğ·Ğ¾Ğ² Ğ²ĞºĞ»ÑÑ‡Ğ¸Ñ‚ÑÑ Ğ¿Ğ¾ÑĞ»Ğµ Ğ½Ğ°ÑÑ‚Ñ€Ğ¾Ğ¹ĞºĞ¸ Firebase.'),
+              ),
+            ),
+          if (_repository.error != null)
+            Card(color: Colors.red.shade50, child: Padding(padding: const EdgeInsets.all(12), child: Text(_repository.error!))),
+          if (widget.currentUser != null) ...[
+            Row(children: [
+              Expanded(child: _ServiceShortcut(icon: Icons.workspace_premium_outlined, title: 'USTA Business', subtitle: '9 999 â‚¸/Ğ¼ĞµÑ', onTap: () => Navigator.push(context, MaterialPageRoute<void>(builder: (_) => const BusinessScreen())))),
+              const SizedBox(width: 8),
+              Expanded(child: _ServiceShortcut(icon: Icons.campaign_outlined, title: 'Ğ ĞµĞºĞ»Ğ°Ğ¼Ğ°', subtitle: 'Ğ”Ğ»Ñ Ğ±Ğ¸Ğ·Ğ½ĞµÑĞ°', onTap: () => Navigator.push(context, MaterialPageRoute<void>(builder: (_) => const AdvertisingRequestScreen())))),
+            ]),
+            const SizedBox(height: 14),
+          ],
+          const Text('ĞĞ°Ğ¹Ğ´Ğ¸Ñ‚Ğµ Ñ€Ğ°Ğ±Ğ¾Ñ‚Ñƒ Ğ¸Ğ»Ğ¸ Ğ¼Ğ°ÑÑ‚ĞµÑ€Ğ°',
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w800)),
+          const SizedBox(height: 6),
+          Text('Ğ—Ğ°ĞºĞ°Ğ·Ñ‹ Ğ² Ğ²Ğ°ÑˆĞµĞ¼ Ğ³Ğ¾Ñ€Ğ¾Ğ´Ğµ', style: TextStyle(color: Colors.grey.shade700)),
+          const SizedBox(height: 16),
+          TextField(
+            controller: _search,
+            decoration: InputDecoration(
+              hintText: 'ĞŸĞ¾Ğ¸ÑĞº Ğ¿Ğ¾ Ğ·Ğ°ĞºĞ°Ğ·Ğ°Ğ¼',
+              prefixIcon: const Icon(Icons.search),
+              suffixIcon: _search.text.isEmpty
+                  ? null
+                  : IconButton(
+                      tooltip: 'ĞÑ‡Ğ¸ÑÑ‚Ğ¸Ñ‚ÑŒ Ğ¿Ğ¾Ğ¸ÑĞº',
+                      onPressed: _search.clear,
+                      icon: const Icon(Icons.close),
+                    ),
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(16),
+                borderSide: BorderSide.none,
+              ),
+            ),
+          ),
+          const SizedBox(height: 12),
+          SizedBox(
+            height: 42,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: categories.length,
+              separatorBuilder: (_, __) => const SizedBox(width: 8),
+              itemBuilder: (context, index) {
+                final category = categories[index];
+                return ChoiceChip(
+                  label: Text(category),
+                  selected: _category == category,
+                  onSelected: (_) => setState(() => _category = category),
+                );
+              },
+            ),
+          ),
+          const SizedBox(height: 8),
+          DropdownButtonFormField<String>(
+            value: _city,
+            decoration: const InputDecoration(labelText: 'Ğ“Ğ¾Ñ€Ğ¾Ğ´', prefixIcon: Icon(Icons.location_on_outlined), filled: true, fillColor: Colors.white, border: OutlineInputBorder()),
+            items: ['Ğ’ÑĞµ Ğ³Ğ¾Ñ€Ğ¾Ğ´Ğ°', ...kazakhstanCities]
+                .map((city) => DropdownMenuItem(value: city, child: Text(city)))
+                .toList(),
+            onChanged: (city) { if (city != null) setState(() => _city = city); },
+          ),
+          const SizedBox(height: 12),
+          if (jobs.isEmpty)
+            _EmptyState(hasOrders: _repository.jobs.isNotEmpty)
+          else
+            ...jobs.map((job) => _JobCard(
+                  job: job,
+                  onDelete: (_repository.isCloudMode && job.ownerId != _repository.currentUserId)
+                      ? null
+                      : () => _confirmDelete(job),
+                  onOpen: () => _showDetails(job),
+                )),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _confirmDelete(Job job) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Ğ£Ğ´Ğ°Ğ»Ğ¸Ñ‚ÑŒ Ğ·Ğ°ĞºĞ°Ğ·?'),
+        content: Text(_repository.isCloudMode
+            ? 'Â«${job.title}Â» Ğ±ÑƒĞ´ĞµÑ‚ ÑƒĞ´Ğ°Ğ»Ñ‘Ğ½ Ğ¸Ğ· Ğ¾Ğ±Ñ‰ĞµĞ¹ Ğ»ĞµĞ½Ñ‚Ñ‹.'
+            : 'Â«${job.title}Â» Ğ±ÑƒĞ´ĞµÑ‚ ÑƒĞ´Ğ°Ğ»Ñ‘Ğ½ Ñ ÑÑ‚Ğ¾Ğ³Ğ¾ ÑƒÑÑ‚Ñ€Ğ¾Ğ¹ÑÑ‚Ğ²Ğ°.'),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(context, false), child: const Text('ĞÑ‚Ğ¼ĞµĞ½Ğ°')),
+          FilledButton(onPressed: () => Navigator.pop(context, true), child: const Text('Ğ£Ğ´Ğ°Ğ»Ğ¸Ñ‚ÑŒ')),
+        ],
+      ),
+    );
+    if (confirmed == true) await _repository.remove(job.id);
+  }
+
+  void _showDetails(Job job) {
+    showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      showDragHandle: true,
+      builder: (context) => Padding(
+        padding: const EdgeInsets.fromLTRB(20, 4, 20, 28),
+        child: SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(job.title, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold)),
+              const SizedBox(height: 12),
+              Text('${job.city} Â· ${job.category}'),
+              const SizedBox(height: 8),
+              Text(job.budget == 0 ? 'Ğ‘ÑĞ´Ğ¶ĞµÑ‚ Ğ½Ğµ ÑƒĞºĞ°Ğ·Ğ°Ğ½' : '${job.budget} â‚¸'),
+              const SizedBox(height: 12),
+              if (job.imageUrls.isNotEmpty) ...[
+                const SizedBox(height: 8),
+                SizedBox(
+                  height: 140,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: job.imageUrls.length,
+                    separatorBuilder: (_, __) => const SizedBox(width: 8),
+                    itemBuilder: (_, index) => ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(job.imageUrls[index], width: 180, fit: BoxFit.cover,
+                          errorBuilder: (_, __, ___) => const SizedBox(width: 180, child: Icon(Icons.broken_image_outlined))),
+                    ),
+                  ),
+                ),
+              ],
+              const SizedBox(height: 12),
+              Text(job.description),
+              if (widget.currentUser != null && job.ownerId != null && job.ownerId != widget.currentUser!.uid) ...[
+                const SizedBox(height: 14),
+                SizedBox(
+                  width: double.infinity,
+                  child: FilledButton.icon(
+                    onPressed: () async {
+                      try {
+                        final id = await ChatService.instance.openConversation(job.ownerId!);
+                        if (!context.mounted) return;
+                        Navigator.pop(context);
+                        await Navigator.push(context, MaterialPageRoute<void>(builder: (_) => ChatThreadScreen(conversationId: id, otherUserId: job.ownerId!)));
+                      } catch (_) {
+                        if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('ĞĞµ ÑƒĞ´Ğ°Ğ»Ğ¾ÑÑŒ Ğ¾Ñ‚ĞºÑ€Ñ‹Ñ‚ÑŒ Ğ¿ĞµÑ€ĞµĞ¿Ğ¸ÑĞºÑƒ.')));
+                      }
+                    },
+                    icon: const Icon(Icons.chat_outlined),
+                    label: const Text('ĞĞ°Ğ¿Ğ¸ÑĞ°Ñ‚ÑŒ Ğ·Ğ°ĞºĞ°Ğ·Ñ‡Ğ¸ĞºÑƒ'),
+                  ),
+                ),
+              ],
+              const SizedBox(height: 12),
+              SelectableText('Ğ¢ĞµĞ»ĞµÑ„Ğ¾Ğ½: ${job.phone}'),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _showProfile(BuildContext context) {
+    final profile = widget.profile ?? const <String, dynamic>{};
+    var photoUrl = profile['photoUrl'] as String?;
+    var uploading = false;
+    showDialog<void>(
+      context: context,
+      builder: (dialogContext) => StatefulBuilder(
+        builder: (context, setDialogState) => AlertDialog(
+          title: Text(profile['displayName'] as String? ?? 'ĞœĞ¾Ğ¹ Ğ¿Ñ€Ğ¾Ñ„Ğ¸Ğ»ÑŒ'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              CircleAvatar(
+                radius: 36,
+                foregroundImage: photoUrl == null ? null : NetworkImage(photoUrl!),
+                child: const Icon(Icons.person_outline, size: 36),
+              ),
+              TextButton.icon(
+                onPressed: uploading ? null : () async {
+                  if (!FirebaseConfig.hasStorage) {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Ğ¡Ğ½Ğ°Ñ‡Ğ°Ğ»Ğ° Ğ½Ğ°ÑÑ‚Ñ€Ğ¾Ğ¹Ñ‚Ğµ Firebase Storage.')));
+                    return;
+                  }
+                  try {
+                    final image = await ImagePicker().pickImage(source: ImageSource.gallery, maxWidth: 1200, maxHeight: 1200, imageQuality: 80);
+                    if (image == null || !context.mounted) return;
+                    final bytes = await image.readAsBytes();
+                    if (bytes.length > 5 * 1024 * 1024) throw StateError('Ğ¤Ğ¾Ñ‚Ğ¾ Ğ´Ğ¾Ğ»Ğ¶Ğ½Ğ¾ Ğ±Ñ‹Ñ‚ÑŒ Ğ¼ĞµĞ½ÑŒÑˆĞµ 5 ĞœĞ‘.');
+                    setDialogState(() => uploading = true);
+                    final user = widget.currentUser!;
+                    final mimeType = image.mimeType ?? 'image/jpeg';
+                    if (!const {'image/jpeg', 'image/png', 'image/webp'}.contains(mimeType)) throw StateError('Ğ’Ñ‹Ğ±ĞµÑ€Ğ¸Ñ‚Ğµ Ñ„Ğ¾Ñ‚Ğ¾ Ğ² Ñ„Ğ¾Ñ€Ğ¼Ğ°Ñ‚Ğµ JPEG, PNG Ğ¸Ğ»Ğ¸ WebP.');
+                    final ref = FirebaseStorage.instance.ref('profiles/${user.uid}/avatar');
+                    await ref.putData(bytes, SettableMetadata(contentType: mimeType));
+                    final url = await ref.getDownloadURL();
+                    final firestore = FirebaseFirestore.instance;
+                    final batch = firestore.batch();
+                    batch.update(firestore.collection('users').doc(user.uid), {'photoUrl': url, 'updatedAt': FieldValue.serverTimestamp()});
+                    batch.update(firestore.collection('publicProfiles').doc(user.uid), {'photoUrl': url, 'updatedAt': FieldValue.serverTimestamp()});
+                    await batch.commit();
+                    if (context.mounted) setDialogState(() { photoUrl = url; uploading = false; });
+                  } catch (error) {
+                    if (context.mounted) setDialogState(() => uploading = false);
+                    if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error is StateError ? error.message : 'ĞĞµ ÑƒĞ´Ğ°Ğ»Ğ¾ÑÑŒ Ğ·Ğ°Ğ³Ñ€ÑƒĞ·Ğ¸Ñ‚ÑŒ Ñ„Ğ¾Ñ‚Ğ¾.')));
+                  }
+                },
+                icon: uploading ? const SizedBox.square(dimension: 16, child: CircularProgressIndicator(strokeWidth: 2)) : const Icon(Icons.photo_camera_outlined),
+                label: Text(uploading ? 'Ğ—Ğ°Ğ³Ñ€ÑƒĞ¶Ğ°ĞµĞ¼â€¦' : 'Ğ˜Ğ·Ğ¼ĞµĞ½Ğ¸Ñ‚ÑŒ Ñ„Ğ¾Ñ‚Ğ¾'),
+              ),
+              const SizedBox(height: 8),
+              Text([
+                _roleName(profile['role'] as String?),
+                profile['city'] as String? ?? '',
+                widget.currentUser?.phoneNumber ?? '',
+              ].where((value) => value.isNotEmpty).join('\n'), textAlign: TextAlign.center),
+            ],
+          ),
+          actions: [TextButton(onPressed: () => Navigator.pop(dialogContext), child: const Text('Ğ—Ğ°ĞºÑ€Ñ‹Ñ‚ÑŒ'))],
+        ),
+      ),
+    );
+  }
+
+  String _roleName(String? role) => switch (role) {
+        'master' => 'ĞœĞ°ÑÑ‚ĞµÑ€',
+        'company' => 'ĞšĞ¾Ğ¼Ğ¿Ğ°Ğ½Ğ¸Ñ',
+        'customer' => 'Ğ—Ğ°ĞºĞ°Ğ·Ñ‡Ğ¸Ğº',
+        _ => '',
+      };
+}
+
+class _JobCard extends StatelessWidget {
+  const _JobCard({required this.job, required this.onDelete, required this.onOpen});
+
+  final Job job;
+  final VoidCallback? onDelete;
+  final VoidCallback onOpen;
+
+  @override
+  Widget build(BuildContext context) => Card(
+        color: Colors.white,
+        margin: const EdgeInsets.only(bottom: 10),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          onTap: onOpen,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 12, 4, 14),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                job.imageUrls.isNotEmpty
+                    ? ClipRRect(
+                        borderRadius: BorderRadius.circular(24),
+                        child: Image.network(job.imageUrls.first, width: 48, height: 48, fit: BoxFit.cover,
+                            errorBuilder: (_, __, ___) => const CircleAvatar(child: Icon(Icons.handyman_outlined))),
+                      )
+                    : const CircleAvatar(child: Icon(Icons.handyman_outlined)),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    Text(job.title, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
+                    const SizedBox(height: 6),
+                    Text('${job.city} Â· ${job.category}', style: TextStyle(color: Colors.grey.shade700)),
+                    const SizedBox(height: 6),
+                    Text(job.budget == 0 ? 'Ğ‘ÑĞ´Ğ¶ĞµÑ‚ Ğ½Ğµ ÑƒĞºĞ°Ğ·Ğ°Ğ½' : '${job.budget} â‚¸',
+                        style: const TextStyle(fontWeight: FontWeight.w700)),
+                  ]),
+                ),
+                if (onDelete != null)
+                  PopupMenuButton<String>(
+                    tooltip: 'Ğ”ĞµĞ¹ÑÑ‚Ğ²Ğ¸Ñ Ñ Ğ·Ğ°ĞºĞ°Ğ·Ğ¾Ğ¼',
+                    onSelected: (_) => onDelete!(),
+                    itemBuilder: (_) => const [PopupMenuItem(value: 'delete', child: Text('Ğ£Ğ´Ğ°Ğ»Ğ¸Ñ‚ÑŒ'))],
+                  ),
+              ],
+            ),
+          ),
+        ),
+      );
+}
+
+class _EmptyState extends StatelessWidget {
+  const _EmptyState({required this.hasOrders});
+  final bool hasOrders;
+
+  @override
+  Widget build(BuildContext context) => Card(
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(children: [
+            Icon(hasOrders ? Icons.search_off : Icons.work_outline, size: 42, color: Colors.teal),
+            const SizedBox(height: 10),
+            Text(hasOrders ? 'ĞĞ¸Ñ‡ĞµĞ³Ğ¾ Ğ½Ğµ Ğ½Ğ°Ğ¹Ğ´ĞµĞ½Ğ¾' : 'ĞŸĞ¾ĞºĞ° Ğ½ĞµÑ‚ Ğ·Ğ°ĞºĞ°Ğ·Ğ¾Ğ²',
+                style: const TextStyle(fontWeight: FontWeight.bold)),
+            const SizedBox(height: 4),
+            Text(hasOrders ? 'Ğ˜Ğ·Ğ¼ĞµĞ½Ğ¸Ñ‚Ğµ Ğ·Ğ°Ğ¿Ñ€Ğ¾Ñ Ğ¸Ğ»Ğ¸ Ğ²Ñ‹Ğ±ĞµÑ€Ğ¸Ñ‚Ğµ Ğ´Ñ€ÑƒĞ³ÑƒÑ ĞºĞ°Ñ‚ĞµĞ³Ğ¾Ñ€Ğ¸Ñ.' : 'Ğ¡Ğ¾Ğ·Ğ´Ğ°Ğ¹Ñ‚Ğµ Ğ¿ĞµÑ€Ğ²Ñ‹Ğ¹ Ğ·Ğ°ĞºĞ°Ğ· Ğ½Ğ° ÑÑ‚Ğ¾Ğ¼ ÑƒÑÑ‚Ñ€Ğ¾Ğ¹ÑÑ‚Ğ²Ğµ.'),
+          ]),
+        ),
+      );
+}
+
+class _ServiceShortcut extends StatelessWidget {
+  const _ServiceShortcut({required this.icon, required this.title, required this.subtitle, required this.onTap});
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) => Card(
+        color: Colors.white,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Row(children: [
+              Icon(icon, color: const Color(0xFF146B5A)),
+              const SizedBox(width: 8),
+              Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text(title, maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontWeight: FontWeight.w700)),
+                Text(subtitle, maxLines: 1, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 12, color: Colors.grey.shade700)),
+              ])),
+            ]),
+          ),
+        ),
+      );
+}
