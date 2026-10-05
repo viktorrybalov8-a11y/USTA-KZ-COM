@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../app_data.dart';
 import '../firebase_config.dart';
@@ -32,9 +35,17 @@ class _HomeScreenState extends State<HomeScreen> {
   String _category = 'Все';
   String _city = 'Все города';
 
+  String get _homePreferencePrefix =>
+      'usta.home.${widget.currentUser?.uid ?? 'guest'}.';
+
   @override
   void initState() {
     super.initState();
+    final profileCity = widget.profile?['city'];
+    if (profileCity is String && kazakhstanCities.contains(profileCity)) {
+      _city = profileCity;
+    }
+    unawaited(_restoreHomeFilters());
     _repository.addListener(_refresh);
     _search.addListener(_refresh);
   }
@@ -46,6 +57,54 @@ class _HomeScreenState extends State<HomeScreen> {
       ..removeListener(_refresh)
       ..dispose();
     super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(covariant HomeScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.currentUser?.uid != widget.currentUser?.uid) {
+      unawaited(_restoreHomeFilters());
+    }
+  }
+
+  Future<void> _restoreHomeFilters() async {
+    try {
+      final preferences = await SharedPreferences.getInstance();
+      final category = preferences.getString('${_homePreferencePrefix}category');
+      final city = preferences.getString('${_homePreferencePrefix}city');
+      if (!mounted) return;
+      setState(() {
+        if (category == 'Все' || jobCategories.contains(category)) {
+          _category = category!;
+        }
+        if (city == 'Все города' || kazakhstanCities.contains(city)) {
+          _city = city!;
+        }
+      });
+    } catch (_) {
+      // Home filters remain usable if local preference storage is unavailable.
+    }
+  }
+
+  Future<void> _saveHomeFilter(String name, String value) async {
+    try {
+      final preferences = await SharedPreferences.getInstance();
+      await preferences.setString('$_homePreferencePrefix$name', value);
+    } catch (_) {
+      // Saving filters is optional; it must not interrupt browsing.
+    }
+  }
+
+  void _selectCategory(String category) {
+    if (_category == category) return;
+    setState(() => _category = category);
+    unawaited(_saveHomeFilter('category', category));
+  }
+
+  void _selectCity(String city) {
+    if (_city == city) return;
+    setState(() => _city = city);
+    unawaited(_saveHomeFilter('city', city));
   }
 
   void _refresh() {
@@ -150,18 +209,15 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           if (_repository.error != null)
             Card(color: Colors.red.shade50, child: Padding(padding: const EdgeInsets.all(12), child: Text(_repository.error!))),
-          if (widget.currentUser != null) ...[
-            Row(children: [
-              Expanded(child: _ServiceShortcut(icon: Icons.workspace_premium_outlined, title: 'USTA Business', subtitle: '9 999 ₸/мес', onTap: () => Navigator.push(context, MaterialPageRoute<void>(builder: (_) => const BusinessScreen())))),
-              const SizedBox(width: 8),
-              Expanded(child: _ServiceShortcut(icon: Icons.campaign_outlined, title: 'Реклама', subtitle: 'Для бизнеса', onTap: () => Navigator.push(context, MaterialPageRoute<void>(builder: (_) => const AdvertisingRequestScreen())))),
-            ]),
-            const SizedBox(height: 14),
-          ],
-          const Text('Найдите работу или мастера',
+          const Text('Заказы рядом',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.w800)),
           const SizedBox(height: 6),
-          Text('Заказы в вашем городе', style: TextStyle(color: Colors.grey.shade700)),
+          Text(
+            _city == 'Все города'
+                ? 'Работа и услуги по всему Казахстану'
+                : 'Актуальные заказы в $_city',
+            style: TextStyle(color: Colors.grey.shade700),
+          ),
           const SizedBox(height: 16),
           TextField(
             controller: _search,
@@ -195,7 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 return ChoiceChip(
                   label: Text(category),
                   selected: _category == category,
-                  onSelected: (_) => setState(() => _category = category),
+                  onSelected: (_) => _selectCategory(category),
                 );
               },
             ),
@@ -207,9 +263,15 @@ class _HomeScreenState extends State<HomeScreen> {
             items: ['Все города', ...kazakhstanCities]
                 .map((city) => DropdownMenuItem(value: city, child: Text(city)))
                 .toList(),
-            onChanged: (city) { if (city != null) setState(() => _city = city); },
+            onChanged: (city) { if (city != null) _selectCity(city); },
           ),
           const SizedBox(height: 12),
+          const SizedBox(height: 12),
+          Text(
+            'Подходящие заказы',
+            style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+          ),
+          const SizedBox(height: 8),
           if (jobs.isEmpty)
             _EmptyState(hasOrders: _repository.jobs.isNotEmpty)
           else
@@ -220,6 +282,19 @@ class _HomeScreenState extends State<HomeScreen> {
                       : () => _confirmDelete(job),
                   onOpen: () => _showDetails(job),
                 )),
+          if (widget.currentUser != null) ...[
+            const SizedBox(height: 10),
+            Text(
+              'Для вашего бизнеса',
+              style: Theme.of(context).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 4),
+            Row(children: [
+              Expanded(child: _ServiceShortcut(icon: Icons.workspace_premium_outlined, title: 'USTA Business', subtitle: '9 999 ₸/мес', onTap: () => Navigator.push(context, MaterialPageRoute<void>(builder: (_) => const BusinessScreen())))),
+              const SizedBox(width: 8),
+              Expanded(child: _ServiceShortcut(icon: Icons.campaign_outlined, title: 'Реклама', subtitle: 'Для бизнеса', onTap: () => Navigator.push(context, MaterialPageRoute<void>(builder: (_) => const AdvertisingRequestScreen())))),
+            ]),
+          ],
         ],
       ),
     );
@@ -378,6 +453,17 @@ class _HomeScreenState extends State<HomeScreen> {
       };
 }
 
+String _relativeDate(DateTime value) {
+  final now = DateTime.now();
+  final today = DateTime(now.year, now.month, now.day);
+  final date = DateTime(value.year, value.month, value.day);
+  final daysAgo = today.difference(date).inDays;
+  if (daysAgo <= 0) return 'Сегодня';
+  if (daysAgo == 1) return 'Вчера';
+  if (daysAgo < 7) return '$daysAgo дн. назад';
+  return '${value.day.toString().padLeft(2, '0')}.${value.month.toString().padLeft(2, '0')}';
+}
+
 class _JobCard extends StatelessWidget {
   const _JobCard({required this.job, required this.onDelete, required this.onOpen});
 
@@ -409,7 +495,12 @@ class _JobCard extends StatelessWidget {
                   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                     Text(job.title, style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16)),
                     const SizedBox(height: 6),
-                    Text('${job.city} · ${job.category}', style: TextStyle(color: Colors.grey.shade700)),
+                    Text(
+                      '${job.city} · ${job.category} · ${_relativeDate(job.createdAt)}',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontSize: 12, color: Colors.grey.shade700),
+                    ),
                     const SizedBox(height: 6),
                     Text(job.budget == 0 ? 'Бюджет не указан' : '${job.budget} ₸',
                         style: const TextStyle(fontWeight: FontWeight.w700)),
