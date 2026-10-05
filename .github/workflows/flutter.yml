@@ -21,6 +21,8 @@ jobs:
           cache: true
       - name: Generate Android platform
         run: flutter create --platforms=android --org=kz.nargizgryp --project-name=usta_kz .
+      - name: Configure Android for Firebase plugins
+        run: python3 tool/configure_android.py
       - name: Remove generated sample test
         run: rm -f test/widget_test.dart
       - run: flutter pub get

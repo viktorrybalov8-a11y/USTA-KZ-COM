@@ -40,6 +40,7 @@ firebase deploy --only firestore:rules,firestore:indexes,storage
 
 ```sh
 flutter create --platforms=android --org=kz.nargizgryp --project-name=usta_kz .
+python3 tool/configure_android.py
 flutter pub get
 flutter analyze
 flutter test
