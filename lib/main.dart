@@ -81,7 +81,7 @@ class _AuthGateState extends State<AuthGate> {
       }
       await JobRepository.instance.connectCloud(
         firestore: FirebaseFirestore.instance,
-        userId: user?.uid,
+        userId: user != null && (user.email == null || user.emailVerified) ? user.uid : null,
       );
       var isAdmin = false;
       if (user != null) {
@@ -109,6 +109,9 @@ class _AuthGateState extends State<AuthGate> {
   Widget build(BuildContext context) {
     if (_loading) return const Scaffold(body: Center(child: CircularProgressIndicator()));
     if (_user == null) return const AuthScreen();
+    if (_user!.email != null && !_user!.emailVerified) {
+      return EmailVerificationScreen(user: _user!, onVerified: _onEmailVerified);
+    }
     return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
       stream: FirebaseFirestore.instance.collection('users').doc(_user!.uid).snapshots(),
       builder: (context, snapshot) {
@@ -126,6 +129,26 @@ class _AuthGateState extends State<AuthGate> {
       },
     );
   }
+
+  Future<void> _onEmailVerified(User user) async {
+    await JobRepository.instance.connectCloud(
+      firestore: FirebaseFirestore.instance,
+      userId: user.uid,
+    );
+    var isAdmin = false;
+    try {
+      final token = await user.getIdTokenResult(true);
+      isAdmin = token.claims?['admin'] == true;
+    } catch (_) {
+      isAdmin = false;
+    }
+    if (mounted) {
+      setState(() {
+        _user = user;
+        _isAdmin = isAdmin;
+      });
+    }
+  }
 }
 
 class ProfileSetupScreen extends StatefulWidget {
@@ -138,12 +161,19 @@ class ProfileSetupScreen extends StatefulWidget {
 
 class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
   final _name = TextEditingController();
+  final _phone = TextEditingController();
   final _city = TextEditingController(text: 'Петропавловск');
   String _role = 'customer';
   bool _saving = false;
 
   @override
-  void dispose() { _name.dispose(); _city.dispose(); super.dispose(); }
+  void initState() {
+    super.initState();
+    _name.text = widget.user.displayName ?? '';
+  }
+
+  @override
+  void dispose() { _name.dispose(); _phone.dispose(); _city.dispose(); super.dispose(); }
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -154,6 +184,8 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
           TextField(controller: _name, decoration: const InputDecoration(labelText: 'Имя или компания', border: OutlineInputBorder())),
           const SizedBox(height: 12),
           TextField(controller: _city, decoration: const InputDecoration(labelText: 'Город', border: OutlineInputBorder())),
+          const SizedBox(height: 12),
+          TextField(controller: _phone, keyboardType: TextInputType.phone, decoration: const InputDecoration(labelText: 'Телефон для связи', hintText: '+7 7XX XXX XX XX', border: OutlineInputBorder())),
           const SizedBox(height: 12),
           DropdownButtonFormField<String>(
             value: _role,
@@ -175,8 +207,9 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
       );
 
   Future<void> _save() async {
-    if (_name.text.trim().length < 2 || _city.text.trim().isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Введите имя и город.')));
+    final digits = _phone.text.replaceAll(RegExp(r'\D'), '');
+    if (_name.text.trim().length < 2 || _city.text.trim().isEmpty || digits.length < 10) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Введите имя, город и корректный номер телефона.')));
       return;
     }
     setState(() => _saving = true);
@@ -184,7 +217,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
       final privateProfile = {
         'uid': widget.user.uid,
         'displayName': _name.text.trim(),
-        'phone': widget.user.phoneNumber,
+        'phone': _normalizedPhone(_phone.text),
         'city': _city.text.trim(),
         'role': _role,
         'services': const <String>[],
@@ -205,11 +238,20 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
       batch.set(firestore.collection('users').doc(widget.user.uid), privateProfile);
       batch.set(firestore.collection('publicProfiles').doc(widget.user.uid), publicProfile);
       await batch.commit();
+      await widget.user.updateDisplayName(_name.text.trim());
       if (mounted) setState(() => _saving = false);
     } catch (_) {
       if (mounted) setState(() => _saving = false);
       if (mounted) ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Не удалось сохранить профиль. Проверьте правила Firestore.')));
     }
+  }
+
+  String _normalizedPhone(String value) {
+    final digits = value.replaceAll(RegExp(r'\D'), '');
+    if (digits.length == 10) return '+7$digits';
+    if (digits.length == 11 && digits.startsWith('8')) return '+7${digits.substring(1)}';
+    if (digits.length == 11 && digits.startsWith('7')) return '+$digits';
+    return '+$digits';
   }
 }
 

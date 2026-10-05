@@ -4,20 +4,39 @@ import 'package:flutter/foundation.dart';
 /// Set these values from the Firebase project settings at build time.
 /// Values are public app identifiers, never server credentials or private keys.
 class FirebaseConfig {
-  static const apiKey = String.fromEnvironment('FIREBASE_API_KEY');
-  static const appId = String.fromEnvironment('FIREBASE_APP_ID');
+  // Firebase client configuration is public app metadata. Authorization is
+  // enforced by Firebase Auth, Security Rules, and App Check.
+  static const apiKey = String.fromEnvironment(
+    'FIREBASE_API_KEY',
+    defaultValue: 'AIzaSyBZs1gEmuqCN9vbaXT7CGY0x6M_jNDnuUE',
+  );
+  static const appId = String.fromEnvironment(
+    'FIREBASE_APP_ID',
+    defaultValue: '1:923347040194:android:6fff16a782f9520195485b',
+  );
   static const messagingSenderId =
-      String.fromEnvironment('FIREBASE_MESSAGING_SENDER_ID');
+      String.fromEnvironment(
+        'FIREBASE_MESSAGING_SENDER_ID',
+        defaultValue: '923347040194',
+      );
   static const projectId = String.fromEnvironment(
     'FIREBASE_PROJECT_ID',
     defaultValue: 'usta-kz',
   );
-  static const storageBucket = String.fromEnvironment('FIREBASE_STORAGE_BUCKET');
+  static const storageBucket = String.fromEnvironment(
+    'FIREBASE_STORAGE_BUCKET',
+    defaultValue: 'usta-kz.firebasestorage.app',
+  );
 
   static bool get isConfigured =>
       apiKey.isNotEmpty && appId.isNotEmpty && messagingSenderId.isNotEmpty;
 
-  static bool get hasStorage => storageBucket.isNotEmpty;
+  static const storageEnabled = bool.fromEnvironment(
+    'FIREBASE_STORAGE_ENABLED',
+    defaultValue: false,
+  );
+
+  static bool get hasStorage => storageEnabled && storageBucket.isNotEmpty;
 
   static FirebaseOptions? get options {
     if (!isConfigured) return null;

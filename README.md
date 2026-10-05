@@ -15,9 +15,11 @@ Flutter MVP мобильного сервиса заказов и мастеро
 
 ## Настройка Firebase
 
-Создайте Android-приложение в проекте Firebase `usta-kz` с package name `kz.nargizgryp.usta_kz`. В Firebase Console включите Phone Authentication, создайте Firestore и Storage, зарегистрируйте SHA-1/SHA-256 ключи сборки для Phone Auth и проверьте разрешённые регионы SMS. Firebase API key, App ID, Sender ID и bucket — публичные идентификаторы клиента; не добавляйте service account JSON или приватные ключи в приложение и репозиторий.
+Android-приложение уже зарегистрировано в Firebase-проекте `usta-kz` с package name `kz.nargizgryp.usta_kz` и App ID `1:923347040194:android:6fff16a782f9520195485b`. Firebase client options из `google-services.json` заданы как значения по умолчанию в `lib/firebase_config.dart`; при необходимости их можно переопределить через `--dart-define`. Эти параметры предназначены для клиентского приложения, а доступ к данным должен ограничиваться Firebase Authentication, Security Rules и App Check. Никогда не добавляйте service account JSON или приватный ключ подписи в приложение или репозиторий.
 
-Соберите приложение, передав клиентские параметры через `--dart-define`:
+Cloud Firestore уже создан в регионе `asia-south1` (Mumbai) в production mode. Для MVP включён Email/Password provider; вход требует подтверждения почты, затем пользователь заполняет профиль и контактный телефон. Правила `firestore.rules` опубликованы и разрешают доступ только подтверждённым аккаунтам с ограничением по владельцу данных. Включены три составных индекса для объявлений, каталога мастеров и чатов. Phone Authentication отложен до добавления SHA-1 сертификата Android-приложения. В конфигурации указан bucket `usta-kz.firebasestorage.app`, но фото выключены по умолчанию: на тарифе Spark Firebase Console требует Blaze для Cloud Storage. Не включайте Storage без отдельного решения владельца проекта по биллингу.
+
+При необходимости переопределите публичные Firebase options при сборке через `--dart-define`:
 
 ```sh
 flutter pub get
@@ -26,21 +28,23 @@ flutter run \
   --dart-define=FIREBASE_APP_ID=... \
   --dart-define=FIREBASE_MESSAGING_SENDER_ID=... \
   --dart-define=FIREBASE_PROJECT_ID=usta-kz \
-  --dart-define=FIREBASE_STORAGE_BUCKET=...
+  --dart-define=FIREBASE_STORAGE_BUCKET=usta-kz.firebasestorage.app
 ```
+
+Фото остаются выключенными, пока владелец проекта не подключит Cloud Storage и не будет готов включить его при сборке: `--dart-define=FIREBASE_STORAGE_ENABLED=true`.
 
 Примените конфигурацию базы из каталога проекта с установленным Firebase CLI:
 
 ```sh
 firebase use usta-kz
-firebase deploy --only firestore:rules,firestore:indexes,storage,functions
+firebase deploy --only firestore:rules,firestore:indexes
 ```
 
-Cloud Functions требуют привязать Cloud Billing и перевести Firebase-проект с Spark на Blaze. До этого пуши, серверные уведомления и админ-уведомления не выполняются. Настройте бюджетные уведомления и проверьте биллинг/лимиты перед развертыванием. Чтобы назначить администратора, используйте Google Cloud Shell или доверенную машину с Application Default Credentials: `cd functions && npm install && node scripts/set_admin.mjs grant FIREBASE_USER_UID`. Доступ выдаётся только серверным Firebase Admin SDK; мобильный клиент не может назначить администратора. Для отзыва замените `grant` на `revoke`.
+Cloud Functions требуют привязать Cloud Billing и перевести Firebase-проект с Spark на Blaze. До этого пуши, серверные уведомления и админ-уведомления не выполняются. Не меняйте тариф и не добавляйте платёжные данные без отдельного решения владельца проекта. Чтобы назначить администратора, используйте Google Cloud Shell или доверенную машину с Application Default Credentials: `cd functions && npm install && node scripts/set_admin.mjs grant FIREBASE_USER_UID`. Доступ выдаётся только серверным Firebase Admin SDK; мобильный клиент не может назначить администратора. Для отзыва замените `grant` на `revoke`.
 
 Перед настройкой `firebase deploy` нужно сверить регион базы Firestore с регионом функций и разрешить отправку Cloud Messaging. Скрипт администрирования и исходники Functions находятся в `functions/`.
 
-Без этих настроек сборка запускается в локальном демо-режиме. Phone Auth, общие заказы, чаты и фото в нём недоступны.
+Если Firebase Console ещё не включает Email/Password или правила Firestore не опубликованы, облачные вход и данные не заработают. В MVP телефонный SMS-вход, загрузка фото и серверные уведомления отложены; приложение показывает, что фото недоступны, и позволяет опубликовать заказ без них.
 
 ## Проверка и сборка
 

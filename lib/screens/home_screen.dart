@@ -327,7 +327,7 @@ class _HomeScreenState extends State<HomeScreen> {
               TextButton.icon(
                 onPressed: uploading ? null : () async {
                   if (!FirebaseConfig.hasStorage) {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Сначала настройте Firebase Storage.')));
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Фото профиля появятся после включения Firebase Storage.')));
                     return;
                   }
                   try {
@@ -360,7 +360,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Text([
                 _roleName(profile['role'] as String?),
                 profile['city'] as String? ?? '',
-                widget.currentUser?.phoneNumber ?? '',
+                profile['phone'] as String? ?? widget.currentUser?.phoneNumber ?? '',
               ].where((value) => value.isNotEmpty).join('\n'), textAlign: TextAlign.center),
             ],
           ),
