@@ -270,9 +270,11 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
         setState(() => _message = 'Письмо отправлено. Проверьте входящие и папку «Спам».');
       }
     } on FirebaseAuthException catch (exception) {
-      if (mounted) setState(() => _message = exception.code == 'too-many-requests'
-          ? 'Слишком много запросов. Подождите и попробуйте снова.'
-          : 'Не удалось отправить письмо. Попробуйте позже.');
+      if (mounted) {
+        setState(() => _message = exception.code == 'too-many-requests'
+            ? 'Слишком много запросов. Подождите и попробуйте снова.'
+            : 'Не удалось отправить письмо. Попробуйте позже.');
+      }
     } finally {
       if (mounted) setState(() => _busy = false);
     }
