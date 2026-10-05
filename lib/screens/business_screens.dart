@@ -127,16 +127,50 @@ class _AdvertisingRequestScreenState extends State<AdvertisingRequestScreen> {
   }
 }
 
-class AdminRequestsScreen extends StatelessWidget {
+class AdminRequestsScreen extends StatefulWidget {
   const AdminRequestsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) => Scaffold(
+  State<AdminRequestsScreen> createState() => _AdminRequestsScreenState();
+}
+
+class _AdminRequestsScreenState extends State<AdminRequestsScreen> {
+  late final Future<bool> _adminAccess = _checkAdminAccess();
+
+  Future<bool> _checkAdminAccess() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return false;
+    try {
+      final token = await user.getIdTokenResult(true);
+      return token.claims?['admin'] == true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => FutureBuilder<bool>(
+        future: _adminAccess,
+        builder: (context, access) {
+          if (access.connectionState != ConnectionState.done) {
+            return const Scaffold(body: Center(child: CircularProgressIndicator()));
+          }
+          if (access.data != true) {
+            return Scaffold(
+              appBar: AppBar(title: const Text('Заявки USTA.KZ')),
+              body: const Center(child: Text('Доступ только для администратора.')),
+            );
+          }
+          return _buildRequests(context);
+        },
+      );
+
+  Widget _buildRequests(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text('Заявки USTA.KZ')),
         body: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
           stream: FirebaseFirestore.instance.collection('serviceRequests').orderBy('createdAt', descending: true).limit(100).snapshots(),
           builder: (context, snapshot) {
-            if (snapshot.hasError) return const Center(child: Text('Доступ только для администратора с выданным сервером правом.'));
+            if (snapshot.hasError) return const Center(child: Text('Не удалось загрузить заявки.'));
             if (!snapshot.hasData) return const Center(child: CircularProgressIndicator());
             final items = snapshot.data!.docs;
             if (items.isEmpty) return const Center(child: Text('Заявок пока нет.'));
