@@ -12,7 +12,7 @@
 
 Приложение использует тот же проект Firebase, что и USTA.KZ, и подписывается на push-уведомления о заказах. Для отправки администратору Firebase Messaging сохраняет токен этого устройства в его профиле. Никакие серверные ключи в APK не включаются.
 
-Перед реальной установкой зарегистрируйте в проекте `usta-kz` отдельное Android-приложение с package name `kz.nargizgryp.usta_admin` и передайте выданный App ID при сборке через `--dart-define=FIREBASE_APP_ID=...`. App ID основной версии USTA.KZ не следует использовать для отдельного Android package.
+Android-приложение уже зарегистрировано в проекте `usta-kz` с package name `kz.nargizgryp.usta_admin` и отдельным App ID, указанным в `lib/main.dart`. Для повторной регистрации можно переопределить его через `--dart-define=FIREBASE_APP_ID=...`. App ID основной версии USTA.KZ не используется.
 
 ## Сборка APK
 
