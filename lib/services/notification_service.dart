@@ -72,6 +72,13 @@ class NotificationService {
       await FirebaseMessaging.instance.unsubscribeFromTopic('usta_admins');
     } catch (_) {
       // Signing out should still finish if the device is offline.
+    } finally {
+      await _tokenSubscription?.cancel();
+      await _messageSubscription?.cancel();
+      _tokenSubscription = null;
+      _messageSubscription = null;
+      _initializedKey = null;
+      _initializingKey = null;
     }
   }
 
