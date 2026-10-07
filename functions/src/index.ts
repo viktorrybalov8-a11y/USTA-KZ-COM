@@ -18,13 +18,26 @@ async function notifyUser(uid: string, notice: Notice): Promise<void> {
   });
   const devices = await db.collection("users").doc(uid).collection("devices").get();
   const tokens = [...new Set(devices.docs.map((doc) => doc.get("token")).filter((token): token is string => typeof token === "string" && token.length > 20))];
-  if (tokens.length > 0) {
-    await messaging.sendEachForMulticast({
-      tokens,
+  // FCM accepts at most 500 registration tokens in one multicast request.
+  for (let offset = 0; offset < tokens.length; offset += 500) {
+    const batch = tokens.slice(offset, offset + 500);
+    const response = await messaging.sendEachForMulticast({
+      tokens: batch,
       notification: { title: notice.title, body: notice.body },
       data: { type: notice.type },
       android: { priority: "high" },
     });
+    const stale = response.responses.flatMap((result, index) => {
+      const code = result.error?.code;
+      return code === "messaging/registration-token-not-registered" || code === "messaging/invalid-registration-token"
+        ? [batch[index]]
+        : [];
+    });
+    if (stale.length > 0) {
+      const staleSet = new Set(stale);
+      const staleDocs = devices.docs.filter((doc) => staleSet.has(String(doc.get("token"))));
+      await Promise.all(staleDocs.map((doc) => doc.ref.delete()));
+    }
   }
 }
 
