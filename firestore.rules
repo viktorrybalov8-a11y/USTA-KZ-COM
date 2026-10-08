@@ -77,8 +77,15 @@ service cloud.firestore {
           'uid', 'displayName', 'city', 'role', 'services', 'createdAt', 'updatedAt', 'photoUrl'
         ])
         && request.resource.data.role in ['customer', 'master', 'company']
+        && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() >= 2
+        && request.resource.data.displayName.size() <= 80
+        && request.resource.data.city is string
+        && request.resource.data.city.size() >= 2
+        && request.resource.data.city.size() <= 80
         && request.resource.data.services is list
         && request.resource.data.services.size() <= 10
+        && (!('photoUrl' in request.resource.data) || (request.resource.data.photoUrl is string && request.resource.data.photoUrl.size() <= 2048))
         && request.resource.data.createdAt == request.time
         && request.resource.data.updatedAt == request.time;
       allow update: if signedIn() && request.auth.uid == uid
