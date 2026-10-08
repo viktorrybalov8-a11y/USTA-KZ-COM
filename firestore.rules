@@ -102,7 +102,7 @@ service cloud.firestore {
     }
 
     match /jobs/{jobId} {
-      allow read: if signedIn() && resource.data.status == 'published';
+      allow read: if signedIn() && (resource.data.status == 'published' || resource.data.ownerId == request.auth.uid);
       allow create: if signedIn()
         && request.resource.data.ownerId == request.auth.uid
         && validContactPhone(request.resource.data.phone)
