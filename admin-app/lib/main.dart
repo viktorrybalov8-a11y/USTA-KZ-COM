@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:cloud_functions/cloud_functions.dart';
 import 'package:flutter/material.dart';
 
 const green = Color(0xFF146B5A);
@@ -44,10 +45,74 @@ class AdminGate extends StatelessWidget {
       final user = auth.data;
       if (user == null) return const AdminSignInScreen();
       if (user.email != null && !user.emailVerified) {
-        return const AccessScreen(title: 'Подтвердите почту', message: 'Подтвердите адрес электронной почты, затем войдите снова.');
+        return EmailVerificationScreen(user: user);
       }
       return AdminClaimGate(user: user);
     },
+  );
+}
+
+
+class EmailVerificationScreen extends StatefulWidget {
+  const EmailVerificationScreen({required this.user, super.key});
+  final User user;
+  @override
+  State<EmailVerificationScreen> createState() => _EmailVerificationScreenState();
+}
+
+class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
+  bool busy = false;
+  String? message;
+
+  Future<void> resend() async {
+    setState(() { busy = true; message = null; });
+    try {
+      await widget.user.sendEmailVerification();
+      if (mounted) setState(() => message = 'Письмо для подтверждения отправлено на ${widget.user.email}.');
+    } on FirebaseAuthException {
+      if (mounted) setState(() => message = 'Не удалось отправить письмо. Попробуйте позже.');
+    } finally {
+      if (mounted) setState(() => busy = false);
+    }
+  }
+
+  Future<void> refresh() async {
+    setState(() { busy = true; message = null; });
+    try {
+      await widget.user.reload();
+      if (FirebaseAuth.instance.currentUser?.emailVerified == true) {
+        await widget.user.getIdToken(true);
+      } else if (mounted) {
+        setState(() => message = 'Почта пока не подтверждена. Откройте письмо и нажмите ссылку подтверждения.');
+      }
+    } catch (_) {
+      if (mounted) setState(() => message = 'Не удалось проверить подтверждение. Проверьте подключение.');
+    } finally {
+      if (mounted) setState(() => busy = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    body: SafeArea(child: Center(child: SingleChildScrollView(
+      padding: const EdgeInsets.all(24),
+      child: ConstrainedBox(constraints: const BoxConstraints(maxWidth: 440), child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Icon(Icons.mark_email_unread_outlined, size: 56, color: green),
+          const SizedBox(height: 16),
+          const Text('Подтвердите email', textAlign: TextAlign.center, style: TextStyle(fontSize: 24, fontWeight: FontWeight.w800)),
+          const SizedBox(height: 8),
+          Text('Для доступа к панели подтвердите адрес ${widget.user.email ?? ''}.', textAlign: TextAlign.center),
+          if (message != null) ...[const SizedBox(height: 12), Text(message!, textAlign: TextAlign.center)],
+          const SizedBox(height: 18),
+          FilledButton(onPressed: busy ? null : resend, child: const Text('Отправить письмо повторно')),
+          TextButton(onPressed: busy ? null : refresh, child: const Text('Я подтвердил email')),
+          TextButton(onPressed: FirebaseAuth.instance.signOut, child: const Text('Выйти')),
+        ],
+      )),
+    ))),
   );
 }
 
@@ -59,14 +124,17 @@ class AdminClaimGate extends StatelessWidget {
     future: user.getIdTokenResult(true),
     builder: (context, result) {
       if (result.connectionState == ConnectionState.waiting) return const LoadingScreen();
-      if (result.hasError || result.data?.claims?['admin'] != true) {
+      final claims = result.data?.claims;
+      final isAdmin = claims?['admin'] == true;
+      final isManager = claims?['manager'] == true;
+      if (result.hasError || (!isAdmin && !isManager)) {
         return AccessScreen(
           title: 'Нет доступа администратора',
-          message: 'Для этого аккаунта нужно выдать серверное право администратора.',
+          message: 'Доступ выдаётся владельцем USTA по приглашению.',
           onExit: FirebaseAuth.instance.signOut,
         );
       }
-      return const AdminDashboard();
+      return AdminDashboard(isOwner: isAdmin);
     },
   );
 }
@@ -229,7 +297,8 @@ class AdminPushService {
 }
 
 class AdminDashboard extends StatefulWidget {
-  const AdminDashboard({super.key});
+  const AdminDashboard({required this.isOwner, super.key});
+  final bool isOwner;
 
   @override
   State<AdminDashboard> createState() => _AdminDashboardState();
@@ -247,6 +316,11 @@ class _AdminDashboardState extends State<AdminDashboard> {
   @override
   Widget build(BuildContext context) => Scaffold(
     appBar: AppBar(title: const Text('Заявки USTA.KZ'), actions: [
+      if (widget.isOwner) IconButton(
+        tooltip: 'Управляющие',
+        onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const AdminManagersScreen())),
+        icon: const Icon(Icons.manage_accounts_outlined),
+      ),
       IconButton(tooltip: 'Выйти', onPressed: AdminPushService.detachAndSignOut, icon: const Icon(Icons.logout)),
     ]),
     body: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
@@ -271,6 +345,165 @@ class _AdminDashboardState extends State<AdminDashboard> {
         ]);
       },
     ),
+  );
+}
+
+
+class AdminManagersScreen extends StatefulWidget {
+  const AdminManagersScreen({super.key});
+  @override
+  State<AdminManagersScreen> createState() => _AdminManagersScreenState();
+}
+
+class _AdminManagersScreenState extends State<AdminManagersScreen> {
+  bool loading = true;
+  bool busy = false;
+  String? error;
+  List<Map<String, dynamic>> managers = [];
+
+  HttpsCallable get callable => FirebaseFunctions.instanceFor(region: 'asia-south1').httpsCallable('manageAdminAccess');
+
+  @override
+  void initState() {
+    super.initState();
+    loadManagers();
+  }
+
+  Future<void> loadManagers() async {
+    setState(() { loading = true; error = null; });
+    try {
+      final response = await callable.call(<String, dynamic>{'action': 'list'});
+      final data = Map<String, dynamic>.from(response.data as Map);
+      final rows = (data['managers'] as List<dynamic>? ?? const []);
+      if (mounted) setState(() => managers = rows.map((row) => Map<String, dynamic>.from(row as Map)).toList());
+    } on FirebaseFunctionsException catch (e) {
+      if (mounted) setState(() => error = e.code == 'permission-denied' ? 'Управление доступно только владельцу.' : 'Не удалось загрузить список. Проверьте подключение.');
+    } catch (_) {
+      if (mounted) setState(() => error = 'Не удалось загрузить список управляющих.');
+    } finally {
+      if (mounted) setState(() => loading = false);
+    }
+  }
+
+  Future<void> inviteManager() async {
+    final controller = TextEditingController();
+    final email = await showDialog<String>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('Пригласить управляющего'),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          keyboardType: TextInputType.emailAddress,
+          decoration: const InputDecoration(labelText: 'Электронная почта', border: OutlineInputBorder()),
+        ),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(dialogContext), child: const Text('Отмена')),
+          FilledButton(onPressed: () => Navigator.pop(dialogContext, controller.text.trim()), child: const Text('Создать доступ')),
+        ],
+      ),
+    );
+    controller.dispose();
+    if (email == null || email.trim().isEmpty) return;
+    setState(() { busy = true; error = null; });
+    try {
+      final response = await callable.call(<String, dynamic>{'action': 'invite', 'email': email.trim()});
+      final data = Map<String, dynamic>.from(response.data as Map);
+      if (data['created'] == true) {
+        try {
+          await FirebaseAuth.instance.sendPasswordResetEmail(email: email.trim());
+          if (mounted) adminScaffoldMessengerKey.currentState?.showSnackBar(
+            SnackBar(content: Text('Доступ создан. Письмо для установки пароля отправлено на ${email.trim()}.')),
+          );
+        } on FirebaseAuthException {
+          if (mounted) adminScaffoldMessengerKey.currentState?.showSnackBar(
+            SnackBar(content: Text('Доступ создан, но письмо не отправлено. Попросите управляющего воспользоваться «Забыли пароль?» на экране входа.')),
+          );
+        }
+      } else if (mounted) {
+        adminScaffoldMessengerKey.currentState?.showSnackBar(
+          SnackBar(content: Text('Права управляющего выданы для ${email.trim()}. Используется его текущий пароль USTA.')),
+        );
+      }
+      await loadManagers();
+    } on FirebaseFunctionsException catch (e) {
+      final text = e.code == 'already-exists'
+          ? 'Этот email уже имеет полный доступ администратора.'
+          : e.code == 'invalid-argument'
+              ? 'Проверьте адрес электронной почты.'
+              : 'Не удалось создать доступ. Проверьте настройки сервера.';
+      if (mounted) setState(() => error = text);
+    } catch (_) {
+      if (mounted) setState(() => error = 'Не удалось создать доступ. Проверьте подключение.');
+    } finally {
+      if (mounted) setState(() => busy = false);
+    }
+  }
+
+  Future<void> revokeManager(Map<String, dynamic> manager) async {
+    final uid = manager['uid']?.toString() ?? '';
+    final email = manager['email']?.toString() ?? 'этого пользователя';
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('Отозвать доступ?'),
+        content: Text('Управляющий $email больше не сможет открывать заявки.'),
+        actions: [
+          TextButton(onPressed: () => Navigator.pop(dialogContext, false), child: const Text('Отмена')),
+          FilledButton(onPressed: () => Navigator.pop(dialogContext, true), child: const Text('Отозвать')),
+        ],
+      ),
+    );
+    if (confirmed != true || uid.isEmpty) return;
+    setState(() { busy = true; error = null; });
+    try {
+      await callable.call(<String, dynamic>{'action': 'revoke', 'uid': uid});
+      await loadManagers();
+      if (mounted) adminScaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Доступ управляющего отозван.')));
+    } on FirebaseFunctionsException {
+      if (mounted) setState(() => error = 'Не удалось отозвать доступ. Проверьте права и подключение.');
+    } catch (_) {
+      if (mounted) setState(() => error = 'Не удалось отозвать доступ.');
+    } finally {
+      if (mounted) setState(() => busy = false);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+    appBar: AppBar(title: const Text('Управляющие'), actions: [
+      IconButton(onPressed: loading || busy ? null : loadManagers, tooltip: 'Обновить', icon: const Icon(Icons.refresh)),
+    ]),
+    floatingActionButton: FloatingActionButton.extended(
+      onPressed: busy ? null : inviteManager,
+      icon: const Icon(Icons.person_add_alt_1),
+      label: const Text('Пригласить'),
+    ),
+    body: loading
+        ? const Center(child: CircularProgressIndicator())
+        : Column(children: [
+            if (error != null) Padding(padding: const EdgeInsets.all(16), child: Text(error!, style: const TextStyle(color: Colors.red))),
+            Expanded(child: managers.isEmpty
+                ? const Center(child: Text('Пока нет приглашённых управляющих.'))
+                : ListView.separated(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 16, 88),
+                    itemCount: managers.length,
+                    separatorBuilder: (_, __) => const SizedBox(height: 8),
+                    itemBuilder: (context, index) {
+                      final manager = managers[index];
+                      return Card(child: ListTile(
+                        leading: const CircleAvatar(child: Icon(Icons.manage_accounts_outlined)),
+                        title: Text(manager['email']?.toString() ?? 'Без email'),
+                        subtitle: const Text('Управление заявками'),
+                        trailing: IconButton(
+                          tooltip: 'Отозвать доступ',
+                          onPressed: busy ? null : () => revokeManager(manager),
+                          icon: const Icon(Icons.person_remove_alt_1_outlined),
+                        ),
+                      ));
+                    },
+                  )),
+          ]),
   );
 }
 
