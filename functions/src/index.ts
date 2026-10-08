@@ -5,6 +5,7 @@ import { onDocumentCreated } from "firebase-functions/v2/firestore";
 import { onDocumentUpdated } from "firebase-functions/v2/firestore";
 import { onCall, HttpsError } from "firebase-functions/v2/https";
 import { getAuth } from "firebase-admin/auth";
+import type { UserRecord } from "firebase-admin/auth";
 import { randomBytes } from "node:crypto";
 
 initializeApp();
@@ -151,7 +152,7 @@ export const manageAdminAccess = onCall({ region: "asia-south1" }, async (reques
       throw new HttpsError("invalid-argument", "Enter a valid email address.");
     }
 
-    let user;
+    let user: UserRecord;
     let created = false;
     try {
       user = await auth.getUserByEmail(email);
