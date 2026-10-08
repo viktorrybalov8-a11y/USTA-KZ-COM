@@ -167,7 +167,10 @@ service cloud.firestore {
       allow create: if signedIn()
         && request.resource.data.participants is list
         && request.resource.data.participants.size() == 2
-        && request.resource.data.participants.hasAny([request.auth.uid])
+        && request.resource.data.participants[0] is string
+        && request.resource.data.participants[1] is string
+        && request.resource.data.participants[0] != request.resource.data.participants[1]
+        && request.auth.uid in request.resource.data.participants
         && request.resource.data.lastMessage == ''
         && request.resource.data.createdAt == request.time
         && request.resource.data.updatedAt == request.time
