@@ -412,13 +412,17 @@ class _AdminManagersScreenState extends State<AdminManagersScreen> {
       if (data['created'] == true) {
         try {
           await FirebaseAuth.instance.sendPasswordResetEmail(email: email.trim());
-          if (mounted) adminScaffoldMessengerKey.currentState?.showSnackBar(
+          if (mounted) {
+            adminScaffoldMessengerKey.currentState?.showSnackBar(
             SnackBar(content: Text('Доступ создан. Письмо для установки пароля отправлено на ${email.trim()}.')),
-          );
+            );
+          }
         } on FirebaseAuthException {
-          if (mounted) adminScaffoldMessengerKey.currentState?.showSnackBar(
+          if (mounted) {
+            adminScaffoldMessengerKey.currentState?.showSnackBar(
             SnackBar(content: Text('Доступ создан, но письмо не отправлено. Попросите управляющего воспользоваться «Забыли пароль?» на экране входа.')),
-          );
+            );
+          }
         }
       } else if (mounted) {
         adminScaffoldMessengerKey.currentState?.showSnackBar(
