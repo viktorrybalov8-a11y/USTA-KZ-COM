@@ -3,6 +3,10 @@ import { getFirestore, Timestamp } from "firebase-admin/firestore";
 import { getMessaging } from "firebase-admin/messaging";
 import { onDocumentCreated } from "firebase-functions/v2/firestore";
 import { onDocumentUpdated } from "firebase-functions/v2/firestore";
+import { onCall, HttpsError } from "firebase-functions/v2/https";
+import { getAuth } from "firebase-admin/auth";
+import type { UserRecord } from "firebase-admin/auth";
+import { randomBytes } from "node:crypto";
 
 initializeApp();
 const db = getFirestore();
@@ -117,4 +121,87 @@ export const notifyOwnerOnRequestStatus = onDocumentUpdated({ document: "service
     body: `Заявка: ${statusLabels[String(after.status)] ?? "Обновлена"}`,
     type: "service_request_status",
   });
+});
+
+
+/**
+ * Owner-only manager invitations. Managers can process service requests but cannot
+ * invite users or change access. Email/password authentication and email verification
+ * remain enforced by the separate administrator app.
+ */
+export const manageAdminAccess = onCall({ region: "asia-south1" }, async (request) => {
+  if (request.auth?.token.admin !== true) {
+    throw new HttpsError("permission-denied", "Only the USTA owner can manage admin access.");
+  }
+
+  const action = String(request.data?.action ?? "");
+  const auth = getAuth();
+
+  if (action === "list") {
+    const snapshot = await db.collection("admins").where("role", "==", "manager").get();
+    return {
+      managers: snapshot.docs
+        .filter((doc) => doc.get("enabled") === true)
+        .map((doc) => ({ uid: doc.id, email: String(doc.get("email") ?? "") })),
+    };
+  }
+
+  if (action === "invite") {
+    const email = String(request.data?.email ?? "").trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length > 254) {
+      throw new HttpsError("invalid-argument", "Enter a valid email address.");
+    }
+
+    let user: UserRecord;
+    let created = false;
+    try {
+      user = await auth.getUserByEmail(email);
+    } catch (error) {
+      if ((error as { code?: string }).code !== "auth/user-not-found") throw error;
+      user = await auth.createUser({
+        email,
+        emailVerified: false,
+        password: randomBytes(32).toString("base64url"),
+        disabled: false,
+      });
+      created = true;
+    }
+
+    if (user.customClaims?.admin === true) {
+      throw new HttpsError("already-exists", "This account already has full administrator access.");
+    }
+
+    await auth.setCustomUserClaims(user.uid, { ...user.customClaims, manager: true });
+    await db.collection("admins").doc(user.uid).set({
+      email,
+      role: "manager",
+      enabled: true,
+      updatedAt: Timestamp.now(),
+    }, { merge: true });
+
+    return { uid: user.uid, email, created };
+  }
+
+  if (action === "revoke") {
+    const uid = String(request.data?.uid ?? "").trim();
+    if (!uid || uid.length > 128) {
+      throw new HttpsError("invalid-argument", "A valid user id is required.");
+    }
+    const user = await auth.getUser(uid);
+    if (user.customClaims?.admin === true) {
+      throw new HttpsError("failed-precondition", "Full administrator access cannot be revoked as manager access.");
+    }
+    const claims = { ...user.customClaims };
+    delete claims.manager;
+    await auth.setCustomUserClaims(uid, claims);
+    await db.collection("admins").doc(uid).set({
+      enabled: false,
+      role: "manager",
+      updatedAt: Timestamp.now(),
+    }, { merge: true });
+    await auth.revokeRefreshTokens(uid);
+    return { uid, revoked: true };
+  }
+
+  throw new HttpsError("invalid-argument", "Unknown manager access action.");
 });

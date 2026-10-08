@@ -15,6 +15,14 @@ service cloud.firestore {
       return request.auth != null && request.auth.token.get('admin', false) == true;
     }
 
+    function isManager() {
+      return request.auth != null
+        && request.auth.token.get('manager', false) == true
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+        && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.get('enabled', false) == true
+        && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.get('role', '') == 'manager';
+    }
+
     function validProfile(data, uid) {
       return data.uid == uid
         && validContactPhone(data.phone)
@@ -221,8 +229,8 @@ service cloud.firestore {
             && request.resource.data.message.size() <= 1000
             && request.resource.data.keys().hasOnly(['ownerUid', 'phone', 'type', 'company', 'placement', 'message', 'status', 'createdAt']))
         );
-      allow read: if signedIn() && (isAdmin() || resource.data.ownerUid == request.auth.uid);
-      allow update: if isAdmin()
+      allow read: if signedIn() && (isAdmin() || isManager() || resource.data.ownerUid == request.auth.uid);
+      allow update: if (isAdmin() || isManager())
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'updatedAt'])
         && request.resource.data.status in ['new', 'in_progress', 'done', 'rejected']
         && request.resource.data.updatedAt == request.time;
