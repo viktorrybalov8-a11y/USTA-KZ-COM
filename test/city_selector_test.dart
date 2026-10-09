@@ -22,6 +22,11 @@ void main() {
 
     await tester.tap(find.byType(DropdownButtonFormField<String>));
     await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(
+      find.text('Другой населённый пункт'),
+      300,
+      scrollable: find.byType(Scrollable).last,
+    );
     await tester.tap(find.text('Другой населённый пункт').last);
     await tester.pumpAndSettle();
     await tester.enterText(find.byType(TextFormField), 'Каскелен');
