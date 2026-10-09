@@ -10,6 +10,7 @@ import 'screens/auth_screen.dart';
 import 'screens/home_screen.dart';
 import 'services/job_repository.dart';
 import 'services/notification_service.dart';
+import 'widgets/city_selector.dart';
 import 'services/push_banner.dart';
 
 Future<void> main() async {
@@ -164,7 +165,8 @@ class ProfileSetupScreen extends StatefulWidget {
 class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
   final _name = TextEditingController();
   final _phone = TextEditingController();
-  final _city = TextEditingController(text: 'Петропавловск');
+  final _formKey = GlobalKey<FormState>();
+  String _city = 'Петропавловск';
   String _role = 'customer';
   bool _saving = false;
 
@@ -175,17 +177,22 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
   }
 
   @override
-  void dispose() { _name.dispose(); _phone.dispose(); _city.dispose(); super.dispose(); }
+  void dispose() { _name.dispose(); _phone.dispose(); super.dispose(); }
 
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text('Настройка профиля')),
-        body: ListView(padding: const EdgeInsets.all(20), children: [
+        body: Form(key: _formKey, child: ListView(padding: const EdgeInsets.all(20), children: [
           const Text('Заполните профиль, чтобы начать работу в USTA.KZ.'),
           const SizedBox(height: 16),
           TextField(controller: _name, decoration: const InputDecoration(labelText: 'Имя или компания', border: OutlineInputBorder())),
           const SizedBox(height: 12),
-          TextField(controller: _city, decoration: const InputDecoration(labelText: 'Город', border: OutlineInputBorder())),
+          CitySelector(
+            key: ValueKey(_city),
+            initialCity: _city,
+            label: 'Город *',
+            onChanged: (city) => _city = city,
+          ),
           const SizedBox(height: 12),
           TextField(controller: _phone, keyboardType: TextInputType.phone, decoration: const InputDecoration(labelText: 'Телефон для связи', hintText: '+7 7XX XXX XX XX', border: OutlineInputBorder())),
           const SizedBox(height: 12),
@@ -205,12 +212,12 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
             child: Text(_saving ? 'Сохраняем…' : 'Сохранить профиль'),
           ),
           TextButton(onPressed: () => FirebaseAuth.instance.signOut(), child: const Text('Выйти')),
-        ]),
+        ])),
       );
 
   Future<void> _save() async {
     final digits = _phone.text.replaceAll(RegExp(r'\D'), '');
-    if (_name.text.trim().length < 2 || _city.text.trim().isEmpty || digits.length < 10) {
+    if (!_formKey.currentState!.validate() || _name.text.trim().length < 2 || _city.trim().isEmpty || digits.length < 10) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Введите имя, город и корректный номер телефона.')));
       return;
     }
@@ -220,7 +227,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
         'uid': widget.user.uid,
         'displayName': _name.text.trim(),
         'phone': _normalizedPhone(_phone.text),
-        'city': _city.text.trim(),
+        'city': _city.trim(),
         'role': _role,
         'services': const <String>[],
         'createdAt': FieldValue.serverTimestamp(),
@@ -229,7 +236,7 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
       final publicProfile = {
         'uid': widget.user.uid,
         'displayName': _name.text.trim(),
-        'city': _city.text.trim(),
+        'city': _city.trim(),
         'role': _role,
         'services': const <String>[],
         'createdAt': FieldValue.serverTimestamp(),

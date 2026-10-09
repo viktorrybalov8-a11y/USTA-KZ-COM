@@ -9,6 +9,7 @@ import '../app_data.dart';
 import '../firebase_config.dart';
 import '../models/job.dart';
 import '../services/job_repository.dart';
+import '../widgets/city_selector.dart';
 
 class CreateJobScreen extends StatefulWidget {
   const CreateJobScreen({super.key});
@@ -20,11 +21,12 @@ class CreateJobScreen extends StatefulWidget {
 class _CreateJobScreenState extends State<CreateJobScreen> {
   final _formKey = GlobalKey<FormState>();
   final _title = TextEditingController();
-  final _city = TextEditingController(text: 'Петропавловск');
+  String _city = 'Петропавловск';
   final _phone = TextEditingController();
   final _budget = TextEditingController();
   final _description = TextEditingController();
   String _category = jobCategories.first;
+  bool _cityTouched = false;
   bool _saving = false;
   final List<XFile> _images = [];
   final _imagePicker = ImagePicker();
@@ -32,16 +34,22 @@ class _CreateJobScreenState extends State<CreateJobScreen> {
   @override
   void initState() {
     super.initState();
-    _loadProfilePhone();
+    _loadProfileDefaults();
   }
 
-  Future<void> _loadProfilePhone() async {
+  Future<void> _loadProfileDefaults() async {
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return;
     try {
       final snapshot = await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
-      final phone = snapshot.data()?['phone'] as String?;
-      if (mounted && phone != null && _phone.text.isEmpty) _phone.text = phone;
+      final profile = snapshot.data();
+      final phone = profile?['phone'] as String?;
+      final city = profile?['city'] as String?;
+      if (!mounted) return;
+      setState(() {
+        if (phone != null && _phone.text.isEmpty) _phone.text = phone;
+        if (!_cityTouched && city != null && city.trim().isNotEmpty) _city = city.trim();
+      });
     } catch (_) {
       // The user can still enter a contact number manually.
     }
@@ -50,7 +58,6 @@ class _CreateJobScreenState extends State<CreateJobScreen> {
   @override
   void dispose() {
     _title.dispose();
-    _city.dispose();
     _phone.dispose();
     _budget.dispose();
     _description.dispose();
@@ -78,16 +85,19 @@ class _CreateJobScreenState extends State<CreateJobScreen> {
               const SizedBox(height: 8),
               DropdownButtonFormField<String>(
                 value: _category,
+                isExpanded: true,
                 decoration: const InputDecoration(labelText: 'Категория', border: OutlineInputBorder()),
                 items: jobCategories.map((value) => DropdownMenuItem(value: value, child: Text(value))).toList(),
                 onChanged: _saving ? null : (value) { if (value != null) setState(() => _category = value); },
               ),
               const SizedBox(height: 16),
-              TextFormField(
-                controller: _city,
-                textCapitalization: TextCapitalization.words,
-                decoration: const InputDecoration(labelText: 'Город *', border: OutlineInputBorder()),
-                validator: _required,
+              CitySelector(
+                key: ValueKey(_city),
+                initialCity: _city,
+                onChanged: (city) {
+                  _city = city;
+                  _cityTouched = true;
+                },
               ),
               const SizedBox(height: 16),
               TextFormField(
@@ -253,7 +263,7 @@ class _CreateJobScreenState extends State<CreateJobScreen> {
         id: jobId,
         title: _title.text.trim(),
         category: _category,
-        city: _city.text.trim(),
+        city: _city.trim(),
         phone: _phone.text.trim(),
         description: _description.text.trim(),
         budget: digits.isEmpty ? 0 : int.parse(digits),

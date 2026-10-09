@@ -42,8 +42,8 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     final profileCity = widget.profile?['city'];
-    if (profileCity is String && kazakhstanCities.contains(profileCity)) {
-      _city = profileCity;
+    if (profileCity is String && profileCity.trim().isNotEmpty) {
+      _city = profileCity.trim();
     }
     unawaited(_restoreHomeFilters());
     _repository.addListener(_refresh);
@@ -77,7 +77,9 @@ class _HomeScreenState extends State<HomeScreen> {
         if (category == 'Все' || jobCategories.contains(category)) {
           _category = category!;
         }
-        if (city == 'Все города' || kazakhstanCities.contains(city)) {
+        if (city == 'Все города' ||
+            kazakhstanCities.contains(city) ||
+            city == widget.profile?['city']) {
           _city = city!;
         }
       });
@@ -260,7 +262,11 @@ class _HomeScreenState extends State<HomeScreen> {
           DropdownButtonFormField<String>(
             value: _city,
             decoration: const InputDecoration(labelText: 'Город', prefixIcon: Icon(Icons.location_on_outlined), filled: true, fillColor: Colors.white, border: OutlineInputBorder()),
-            items: ['Все города', ...kazakhstanCities]
+            items: [
+              'Все города',
+              ...kazakhstanCities,
+              if (_city != 'Все города' && !kazakhstanCities.contains(_city)) _city,
+            ]
                 .map((city) => DropdownMenuItem(value: city, child: Text(city)))
                 .toList(),
             onChanged: (city) { if (city != null) _selectCity(city); },
