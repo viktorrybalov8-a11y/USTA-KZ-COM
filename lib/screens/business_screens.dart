@@ -10,52 +10,51 @@ Future<String?> _contactPhone(User user) async {
 class BusinessScreen extends StatelessWidget {
   const BusinessScreen({super.key});
 
-  Future<void> _requestBusiness(BuildContext context) async {
-    final user = FirebaseAuth.instance.currentUser;
-    if (user == null) return;
-    try {
-      final phone = await _contactPhone(user);
-      if (phone == null || phone.isEmpty) throw StateError('Заполните телефон в профиле.');
-      await FirebaseFirestore.instance.collection('serviceRequests').add({
-        'ownerUid': user.uid,
-        'phone': phone,
-        'type': 'business',
-        'planId': 'usta_business_monthly',
-        'price': 9999,
-        'currency': 'KZT',
-        'interval': 'month',
-        'status': 'new',
-        'createdAt': FieldValue.serverTimestamp(),
-      });
-      if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Заявка отправлена. Администратор свяжется с вами для подключения и оплаты.')));
-      }
-    } catch (error) {
-      if (context.mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error is StateError ? error.message : 'Не удалось отправить заявку. Проверьте подключение.')));
-    }
-  }
-
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text('USTA Business')),
-        body: ListView(padding: const EdgeInsets.all(20), children: [
-          const Icon(Icons.workspace_premium_outlined, size: 58, color: Color(0xFF146B5A)),
-          const SizedBox(height: 12),
-          const Text('Больше доверия и заявок', textAlign: TextAlign.center, style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 20),
-          Card(color: Colors.white, child: Padding(padding: const EdgeInsets.all(20), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            const Text('USTA Business', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
-            const SizedBox(height: 8),
-            const Text('9 999 ₸ / месяц', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Color(0xFF146B5A))),
-            const Divider(height: 24),
-            for (final feature in const ['Расширенная карточка компании', 'Приоритетное место в каталоге', 'Публикация портфолио и услуг', 'Базовая статистика просмотров'])
-              Padding(padding: const EdgeInsets.only(bottom: 10), child: Row(children: [const Icon(Icons.check_circle_outline, size: 20), const SizedBox(width: 10), Expanded(child: Text(feature))])),
-          ]))),
-          const SizedBox(height: 12),
-          const Text('Сейчас отправляется заявка на подключение. Оплата картой и автоматическое включение тарифа пока не подключены; администратор подтвердит условия до списания средств.', textAlign: TextAlign.center),
-          const SizedBox(height: 16),
-          FilledButton.icon(onPressed: () => _requestBusiness(context), icon: const Icon(Icons.send_outlined), label: const Text('Оставить заявку')),
-        ]),
+        appBar: AppBar(title: const Text('USTA бесплатно')),
+        body: ListView(
+          padding: const EdgeInsets.all(20),
+          children: [
+            const Icon(Icons.handyman_outlined, size: 58, color: Color(0xFF146B5A)),
+            const SizedBox(height: 16),
+            const Text(
+              'Все основные возможности USTA сейчас бесплатны',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 12),
+            const Text(
+              'На этапе запуска в USTA нет платных тарифов и оплаты внутри приложения. Создавайте профиль, размещайте заказы и находите специалистов бесплатно.',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 20),
+            Card(
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(18),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text('Бесплатно доступны', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                    SizedBox(height: 12),
+                    Text('• Создание профиля заказчика, мастера или компании'),
+                    SizedBox(height: 8),
+                    Text('• Размещение и поиск строительных заказов'),
+                    SizedBox(height: 8),
+                    Text('• Отклики и связь между заказчиками и специалистами'),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            FilledButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Продолжить бесплатно'),
+            ),
+          ],
+        ),
       );
 }
 
@@ -179,7 +178,7 @@ class _AdminRequestsScreenState extends State<AdminRequestsScreen> {
               final data = doc.data();
               final business = data['type'] == 'business';
               return Card(color: Colors.white, child: Padding(padding: const EdgeInsets.all(14), child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text(business ? 'USTA Business · 9 999 ₸/мес' : 'Реклама · ${data['placement'] ?? ''}', style: const TextStyle(fontWeight: FontWeight.bold)),
+                Text(business ? 'USTA Business · бесплатный доступ' : 'Реклама · ${data['placement'] ?? ''}', style: const TextStyle(fontWeight: FontWeight.bold)),
                 if (!business) Text('${data['company'] ?? ''}: ${data['message'] ?? ''}'),
                 Text('Телефон: ${data['phone'] ?? '—'}'),
                 const SizedBox(height: 8),
