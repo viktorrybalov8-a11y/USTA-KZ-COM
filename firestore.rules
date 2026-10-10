@@ -211,24 +211,15 @@ service cloud.firestore {
         && validContactPhone(request.resource.data.phone)
         && request.resource.data.status == 'new'
         && request.resource.data.createdAt == request.time
-        && (
-          (request.resource.data.type == 'business'
-            && request.resource.data.planId == 'usta_business_monthly'
-            && request.resource.data.price == 9999
-            && request.resource.data.currency == 'KZT'
-            && request.resource.data.interval == 'month'
-            && request.resource.data.keys().hasOnly(['ownerUid', 'phone', 'type', 'planId', 'price', 'currency', 'interval', 'status', 'createdAt']))
-          ||
-          (request.resource.data.type == 'advertising'
-            && request.resource.data.company is string
-            && request.resource.data.company.size() >= 2
-            && request.resource.data.company.size() <= 100
-            && request.resource.data.placement in ['Баннер в приложении', 'Карточка в каталоге', 'Рассылка пользователям']
-            && request.resource.data.message is string
-            && request.resource.data.message.size() >= 5
-            && request.resource.data.message.size() <= 1000
-            && request.resource.data.keys().hasOnly(['ownerUid', 'phone', 'type', 'company', 'placement', 'message', 'status', 'createdAt']))
-        );
+        && request.resource.data.type == 'advertising'
+        && request.resource.data.company is string
+        && request.resource.data.company.size() >= 2
+        && request.resource.data.company.size() <= 100
+        && request.resource.data.placement in ['Баннер в приложении', 'Карточка в каталоге', 'Рассылка пользователям']
+        && request.resource.data.message is string
+        && request.resource.data.message.size() >= 5
+        && request.resource.data.message.size() <= 1000
+        && request.resource.data.keys().hasOnly(['ownerUid', 'phone', 'type', 'company', 'placement', 'message', 'status', 'createdAt']);
       allow read: if signedIn() && (isAdmin() || isManager() || resource.data.ownerUid == request.auth.uid);
       allow update: if (isAdmin() || isManager())
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'updatedAt'])
