@@ -173,7 +173,9 @@ class _AuthScreenState extends State<AuthScreen> {
         await result.user!.reload();
         if (!FirebaseAuth.instance.currentUser!.emailVerified) {
           await FirebaseAuth.instance.currentUser!.sendEmailVerification();
-          throw FirebaseAuthException(code: 'email-not-verified');
+          // Keep the verified sign-in session so AuthGate can show the
+          // verification screen instead of ejecting the user back to login.
+          return;
         }
       }
     } on FirebaseAuthException catch (exception) {
