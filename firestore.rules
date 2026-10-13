@@ -85,8 +85,15 @@ service cloud.firestore {
           'uid', 'displayName', 'city', 'role', 'services', 'createdAt', 'updatedAt', 'photoUrl'
         ])
         && request.resource.data.role in ['customer', 'master', 'company']
+        && request.resource.data.displayName is string
+        && request.resource.data.displayName.size() >= 2
+        && request.resource.data.displayName.size() <= 80
+        && request.resource.data.city is string
+        && request.resource.data.city.size() >= 2
+        && request.resource.data.city.size() <= 80
         && request.resource.data.services is list
         && request.resource.data.services.size() <= 10
+        && (!('photoUrl' in request.resource.data) || (request.resource.data.photoUrl is string && request.resource.data.photoUrl.size() <= 2048))
         && request.resource.data.createdAt == request.time
         && request.resource.data.updatedAt == request.time;
       allow update: if signedIn() && request.auth.uid == uid
@@ -110,7 +117,7 @@ service cloud.firestore {
     }
 
     match /jobs/{jobId} {
-      allow read: if signedIn() && resource.data.status == 'published';
+      allow read: if signedIn() && (resource.data.status == 'published' || resource.data.ownerId == request.auth.uid);
       allow create: if signedIn()
         && request.resource.data.ownerId == request.auth.uid
         && validContactPhone(request.resource.data.phone)
@@ -168,7 +175,10 @@ service cloud.firestore {
       allow create: if signedIn()
         && request.resource.data.participants is list
         && request.resource.data.participants.size() == 2
-        && request.resource.data.participants.hasAny([request.auth.uid])
+        && request.resource.data.participants[0] is string
+        && request.resource.data.participants[1] is string
+        && request.resource.data.participants[0] != request.resource.data.participants[1]
+        && request.auth.uid in request.resource.data.participants
         && request.resource.data.lastMessage == ''
         && request.resource.data.createdAt == request.time
         && request.resource.data.updatedAt == request.time
